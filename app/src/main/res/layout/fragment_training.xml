@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.TrainingFragment">
+
+
+    <HorizontalScrollView
+        android:id="@+id/HscrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:text="Training Sessions"
+                android:textColor="#011222"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:text="Training Videos"
+                android:textColor="#011222"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/txtLive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="21dp"
+        android:text="Upcoming Live Session"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HscrollView" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/earnConst"
+        android:layout_width="364dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_bg_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtLive">
+
+        <TextView
+            android:id="@+id/img_2"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/ic_bg_tv"
+            android:drawableLeft="@drawable/ic_earn"
+            android:paddingStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9.75dp"
+            android:layout_marginTop="11dp"
+            android:text="Earn"
+            android:textColor="#2C32BE"
+            app:layout_constraintStart_toEndOf="@id/img_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/textView"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="4dp"-->
+        <!--            android:layout_marginTop="11dp"-->
+        <!--            android:layout_marginEnd="200dp"-->
+        <!--            android:text="$ 20.00"-->
+        <!--            android:textColor="#2C32BE"-->
+        <!--            app:layout_constraintStart_toEndOf="@id/tv_2"-->
+        <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <TextView
+            android:layout_width="238dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="9.75dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="17dp"
+
+            android:lines="2"
+            android:minLines="2"
+            android:text="On Your Customer’s Card Approval Dispatch"
+            app:layout_constraintStart_toEndOf="@+id/img_2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginRight="20dp"
+        android:text="Share"
+        android:textSize="18dp"
+        app:layout_constraintTop_toBottomOf="@+id/earnConst" />
+</androidx.constraintlayout.widget.ConstraintLayout>

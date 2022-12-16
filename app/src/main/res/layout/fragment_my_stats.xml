@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.MyStatsFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintEarn"
+        android:layout_width="364dp"
+        android:layout_height="83dp"
+        android:background="@drawable/ic_bg_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/img_2"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/ic_bg_tv"
+            android:drawableLeft="@drawable/ic_wallet"
+            android:paddingStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9.75dp"
+            android:layout_marginTop="11dp"
+            android:text="Earn"
+            android:textColor="#2C32BE"
+            app:layout_constraintStart_toEndOf="@id/img_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="200dp"
+            android:text="$ 20.00"
+            android:textColor="#2C32BE"
+            app:layout_constraintStart_toEndOf="@id/tv_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="156dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="9.75dp"
+            android:layout_marginTop="4dp"
+            android:lines="2"
+            android:minLines="2"
+            android:text="On Your  Customer’s Card Approval And Dispetch."
+            app:layout_constraintStart_toEndOf="@id/img_2"
+            app:layout_constraintTop_toBottomOf="@+id/tv_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintEarn">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="13dp"
+                android:src="@drawable/lady"
+                app:layout_constraintTop_toBottomOf="@+id/btnDetail" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                android:text="No Customer Found"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="13dp"
+                android:gravity="center"
+                android:text="Add  custmore and earn extra income .\ntrack the details anytime."
+                android:textSize="12dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="#FFAAD3"
+                android:text="Add New Customer"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

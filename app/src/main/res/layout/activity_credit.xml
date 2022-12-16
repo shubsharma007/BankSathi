@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_theme"
+    tools:context=".CreditActivity">
+
+    <TextView
+        android:id="@+id/ic_Back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/ic_bg_tv"
+        android:drawableLeft="@drawable/ic_back"
+        android:paddingStart="15dp" />
+
+    <TextView
+        android:id="@+id/tvH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:paddingStart="8dp"
+        android:text="Credit Cards"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/ic_Ball"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="23dp"
+        android:background="@drawable/ic_bg_tv"
+        android:drawableLeft="@drawable/ic_ball"
+        android:paddingStart="8dp" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/bg_second_constraint">
+
+        <HorizontalScrollView
+            android:id="@+id/firstScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="23dp"
+                android:background="@drawable/bg_button">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="9dp"
+                    android:src="@drawable/ic_credit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Credit Card"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Earn Upto "
+                    android:textColor="@color/white"
+                    android:textSize="10.43sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                <TextView
+                    android:id="@+id/textView22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="2dp"
+                    android:text="₹"
+                    android:textColor="@color/white"
+                    android:textSize="10.43sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView21"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="2dp"
+                    android:text="2221"
+                    android:textColor="@color/white"
+                    android:textSize="10.43sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView22"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/ic_bg_tv">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:src="@drawable/ic_bank2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Credit Card"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Earn Upto "
+                    android:textColor="@color/black"
+                    android:textSize="10.43sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="2dp"
+                    android:text="₹"
+                    android:textColor="@color/black"
+                    android:textSize="10.43sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView5"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="2dp"
+                    android:text="2221"
+                    android:textColor="@color/black"
+                    android:textSize="10.43sp"
+                    app:layout_constraintStart_toEndOf="@+id/textView6"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+        </HorizontalScrollView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/firstScrollView">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/firstConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginEnd="23dp"
+                    android:background="@drawable/ic_bg_tv">
+
+
+                    <ImageView
+                        android:id="@+id/btnAsisLogo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12sp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_axis" />
+
+                    <TextView
+                        android:id="@+id/txtFirst"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="31dp"
+                        android:text="Axis Bank Credit Card"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/btnAsisLogo"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textSecond"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Exciting Cashback Uncapped\nReward Points"
+                        android:textColor="#80000000"
+                        android:textSize="10sp"
+                        app:layout_constraintStart_toEndOf="@+id/btnAsisLogo"
+                        app:layout_constraintTop_toBottomOf="@+id/txtFirst" />
+
+                    <TextView
+                        android:id="@+id/txtThird"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawableLeft="@drawable/ic_fav"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:layout_width="117dp"
+                        android:layout_height="17dp"
+                        android:layout_marginTop="29dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#80FC6A00"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/viewFirst"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtThird">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Earn Upto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:text="$21.20"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/viewFirst"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="#80000000"
+                        app:layout_constraintTop_toBottomOf="@+id/textSecond" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnFirstQV"
+                        android:layout_width="210dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="41dp"
+                        android:layout_marginTop="21dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_button"
+                        android:text="Quick View"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/viewFirst"
+                        app:layout_constraintTop_toTopOf="@+id/viewFirst">
+
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="21dp"
+                        android:background="@drawable/bg_button"
+                        android:drawableLeft="@drawable/ic_share2"
+                        android:padding="14dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btnFirstQV"
+                        app:layout_constraintTop_toBottomOf="@+id/viewFirst" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/secondConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/firstConstraint"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginEnd="23dp"
+                    android:background="@drawable/ic_bg_tv">
+
+
+                    <ImageView
+                        android:id="@+id/btnBobLogo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12sp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/logo_bob" />
+
+                    <TextView
+                        android:id="@+id/txtFirst1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="31dp"
+                        android:text="Bank Of Baroda Credit Card"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/btnBobLogo"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtSecond1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Exciting Cashback Uncapped\nReward Points"
+                        android:textColor="#80000000"
+                        android:textSize="10sp"
+                        app:layout_constraintStart_toEndOf="@+id/btnBobLogo"
+                        app:layout_constraintTop_toBottomOf="@+id/txtFirst1" />
+
+                    <TextView
+                        android:id="@+id/txtThird1"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawableLeft="@drawable/ic_fav"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:layout_width="117dp"
+                        android:layout_height="17dp"
+                        android:layout_marginTop="29dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#80FC6A00"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/viewSecond"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtThird1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Earn Upto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:text="$21.20"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/viewSecond"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="#80000000"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSecond1" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnSecondQV"
+                        android:layout_width="210dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="41dp"
+                        android:layout_marginTop="21dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_button"
+                        android:text="Quick View"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/viewSecond"
+                        app:layout_constraintTop_toTopOf="@+id/viewSecond">
+
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="21dp"
+                        android:background="@drawable/bg_button"
+                        android:drawableLeft="@drawable/ic_share2"
+                        android:padding="14dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btnSecondQV"
+                        app:layout_constraintTop_toBottomOf="@+id/viewSecond" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/thirdConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/secondConstraint"
+                    android:layout_marginStart="23dp"
+                    android:layout_marginEnd="23dp"
+                    android:background="@drawable/ic_bg_tv">
+
+
+                    <ImageView
+                        android:id="@+id/btnAuLogo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12sp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/logo_au" />
+
+                    <TextView
+                        android:id="@+id/txtFirst2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="31dp"
+                        android:text="AU Bank Credit Card"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/btnAuLogo"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/txtSecond2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Exciting Cashback Uncapped\nReward Points"
+                        android:textColor="#80000000"
+                        android:textSize="10sp"
+                        app:layout_constraintStart_toEndOf="@+id/btnAuLogo"
+                        app:layout_constraintTop_toBottomOf="@+id/txtFirst2" />
+
+                    <TextView
+                        android:id="@+id/txtThird2"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="15dp"
+                        android:drawableLeft="@drawable/ic_fav"
+                        android:padding="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:layout_width="117dp"
+                        android:layout_height="17dp"
+                        android:layout_marginTop="29dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="#80FC6A00"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/viewThird"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtThird2">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Earn Upto"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:text="$21.20"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/viewThird"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="#80000000"
+                        app:layout_constraintTop_toBottomOf="@+id/txtSecond2" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnThirdQv"
+                        android:layout_width="210dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="41dp"
+                        android:layout_marginTop="21dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@drawable/bg_button"
+                        android:text="Quick View"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/viewThird"
+                        app:layout_constraintTop_toTopOf="@+id/viewThird">
+
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="21dp"
+                        android:background="@drawable/bg_button"
+                        android:drawableLeft="@drawable/ic_share2"
+                        android:padding="14dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btnThirdQv"
+                        app:layout_constraintTop_toBottomOf="@+id/viewThird" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</RelativeLayout>
