@@ -17,9 +17,9 @@ public class CreditActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
-        binding.btnFirstQV.setOnClickListener(v -> {
-            startActivity(new Intent(this,ProductActivity.class));
-        });
+//        binding.btnFirstQV.setOnClickListener(v -> {
+//            startActivity(new Intent(this,ProductActivity.class));
+//        });
 
         binding.icBack.setOnClickListener(v -> {
             finish();
