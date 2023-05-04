@@ -16,7 +16,7 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
-        binding.btnLogin.setOnClickListener(view -> {
+        binding.loginBtn.setOnClickListener(view -> {
 
             OtpVerification otpFragment = new OtpVerification();
             otpFragment.show(getSupportFragmentManager(),otpFragment.getTag());
