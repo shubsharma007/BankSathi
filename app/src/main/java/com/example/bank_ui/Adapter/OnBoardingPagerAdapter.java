@@ -14,13 +14,13 @@ import com.example.bank_ui.R;
 
 import java.util.List;
 
-public class IntroViewPagerAdapter extends PagerAdapter {
+public class OnBoardingPagerAdapter extends PagerAdapter {
 
 
     Context sContext;
     List<SliderModel> sListScreen;
 
-    public IntroViewPagerAdapter(Context sContext, List<SliderModel> sListScreen) {
+    public OnBoardingPagerAdapter(Context sContext, List<SliderModel> sListScreen) {
         this.sContext = sContext;
         this.sListScreen = sListScreen;
     }
