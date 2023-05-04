@@ -27,7 +27,7 @@ public class ProductDetailAddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityProductDetailAddBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+         
         addDialog = new Dialog(this);
 
 

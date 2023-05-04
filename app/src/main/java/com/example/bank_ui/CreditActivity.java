@@ -19,7 +19,7 @@ public class CreditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCreditBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+         
         binding.rCreditCard.setLayoutManager(new LinearLayoutManager(this));
         binding.rCreditCard.setAdapter(new CreditCardAdapter(CreditActivity.this));
 

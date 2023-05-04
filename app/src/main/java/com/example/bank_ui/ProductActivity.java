@@ -20,7 +20,7 @@ public class ProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityProductBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+         
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.secondHome, new MyStatsFragment()).commit();
 

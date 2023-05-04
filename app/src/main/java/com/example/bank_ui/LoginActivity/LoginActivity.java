@@ -26,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+         
 
         binding.clickForSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,26 +38,31 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-//        binding.mainLayout.setBackgroundColor(Color.BLACK);
-//        binding.truee.setVisibility(View.GONE);
-//        binding.btnLogin.setOnClickListener(view -> {
-//
-//            OtpVerification otpFragment = new OtpVerification();
-//            otpFragment.show(getSupportFragmentManager(), otpFragment.getTag());
-//        });
+        binding.mainLayout.setBackgroundColor(Color.WHITE);
+        binding.scroll.setVisibility(View.GONE);
+        binding.scroll.setVisibility(View.GONE);
+        binding.introAnimation.setVisibility(View.VISIBLE);
+        binding.loginBtn.setOnClickListener(view -> {
+
+            OtpVerification otpFragment = new OtpVerification();
+            otpFragment.show(getSupportFragmentManager(), otpFragment.getTag());
+        });
     }
 
     @Override
+
     protected void onResume() {
         super.onResume();
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                binding.mainLayout.setBackgroundColor(Color.BLUE);
-//                binding.truee.setVisibility(View.VISIBLE);
-//            }
-//
-//        }, 2500);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                binding.mainLayout.setBackgroundColor(Color.BLUE);
+                binding.scroll.setVisibility(View.VISIBLE);
+                binding.scroll.setVisibility(View.VISIBLE);
+                binding.introAnimation.setVisibility(View.GONE);
+            }
+
+        }, 3000);
 
     }
 }

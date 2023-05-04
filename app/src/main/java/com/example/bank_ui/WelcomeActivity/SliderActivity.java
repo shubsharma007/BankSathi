@@ -37,7 +37,7 @@ public class SliderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivitySliderBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+         
 
         ViewPager.OnPageChangeListener viewPagerListener = new ViewPager.OnPageChangeListener() {
             @Override

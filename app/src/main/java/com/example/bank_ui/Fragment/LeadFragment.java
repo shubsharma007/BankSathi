@@ -24,7 +24,7 @@ public class LeadFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentLeadsBinding.inflate(inflater, container, false);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+
         FragmentTransaction transaction1 = getParentFragmentManager().beginTransaction();
         transaction1.replace(R.id.secondHome,new LeadsFragment1()).commit();
 
