@@ -36,13 +36,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".VerificationActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".ProductActivity"
             android:exported="true">
             <meta-data
@@ -50,14 +43,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SliderActivity"
+            android:name=".WelcomeActivity.OnBoarding"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".SplashActivity"
+            android:name=".WelcomeActivity.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,7 +63,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".LoginActivity.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
