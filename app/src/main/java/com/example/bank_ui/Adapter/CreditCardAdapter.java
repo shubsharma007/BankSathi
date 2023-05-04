@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
@@ -34,6 +35,9 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
             Intent intent = new Intent(context, ProductActivity.class);
             context.startActivity(intent);
         });
+        holder.shareBtn.setOnClickListener(v -> {
+
+        });
     }
 
     @Override
@@ -43,10 +47,12 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         AppCompatButton btnQuickView;
+        TextView shareBtn;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             btnQuickView = itemView.findViewById(R.id.btnFirstQV);
+            shareBtn = btnQuickView.findViewById(R.id.shareBtn);
         }
     }
 }
