@@ -26,7 +26,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-         
 
         binding.clickForSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +61,7 @@ public class LoginActivity extends AppCompatActivity {
                 binding.introAnimation.setVisibility(View.GONE);
             }
 
-        }, 3000);
+        }, 5000);
 
     }
 }
