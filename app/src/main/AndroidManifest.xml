@@ -43,14 +43,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".WelcomeActivity.OnBoarding"
+            android:name=".WelcomeActivity.SliderActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".WelcomeActivity.SplashActivity"
+            android:name=".WelcomeActivity.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

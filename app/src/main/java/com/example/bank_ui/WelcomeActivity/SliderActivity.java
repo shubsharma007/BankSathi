@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.example.bank_ui.Adapter.IntroViewPagerAdapter;
+import com.example.bank_ui.Adapter.OnBoardingPagerAdapter;
 import com.example.bank_ui.LoginActivity.LoginActivity;
 import com.example.bank_ui.Model.SliderModel;
 import com.example.bank_ui.R;
@@ -20,10 +20,10 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OnBoarding extends AppCompatActivity {
+public class SliderActivity extends AppCompatActivity {
     ActivitySliderBinding binding;
     private ViewPager screenPager;
-    IntroViewPagerAdapter introViewPagerAdapter;
+    OnBoardingPagerAdapter introViewPagerAdapter;
     int position = 0;
     Animation btnAni;
 
@@ -56,7 +56,7 @@ public class OnBoarding extends AppCompatActivity {
 
         // setup ViewPager
         screenPager = findViewById(R.id.viewPager);
-        introViewPagerAdapter = new IntroViewPagerAdapter(this, sList);
+        introViewPagerAdapter = new OnBoardingPagerAdapter(this, sList);
         screenPager.setAdapter(introViewPagerAdapter);
 
         //setup tabLayout with ViewPager
