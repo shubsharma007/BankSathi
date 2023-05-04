@@ -1,13 +1,11 @@
-package com.example.bank_ui;
+package com.example.bank_ui.LoginActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.bank_ui.Fragment.OTPFragment;
+import com.example.bank_ui.BottomSheets.OtpVerification;
 import com.example.bank_ui.databinding.ActivityLoginBinding;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class LoginActivity extends AppCompatActivity {
     ActivityLoginBinding binding;
@@ -20,7 +18,7 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         binding.btnLogin.setOnClickListener(view -> {
 
-            OTPFragment otpFragment = new OTPFragment();
+            OtpVerification otpFragment = new OtpVerification();
             otpFragment.show(getSupportFragmentManager(),otpFragment.getTag());
         });
     }

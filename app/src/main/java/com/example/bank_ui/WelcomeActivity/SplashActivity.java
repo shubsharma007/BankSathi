@@ -1,11 +1,10 @@
-package com.example.bank_ui;
+package com.example.bank_ui.WelcomeActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceActivity;
 
 import com.example.bank_ui.databinding.ActivitySplashBinding;
 
@@ -20,14 +19,14 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
-        binding.imageView3.animate().scaleXBy(0.5f).setDuration(2000);
-        binding.imageView3.animate().scaleYBy(0.5f).setDuration(2000);
+        binding.imageView3.animate().scaleXBy(0.3f).setDuration(2000);
+        binding.imageView3.animate().scaleYBy(0.3f).setDuration(2000);
 
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this,SliderActivity.class));
+                startActivity(new Intent(SplashActivity.this, OnBoarding.class));
                 finish();
             } 
         },2300);
