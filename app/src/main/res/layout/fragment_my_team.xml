@@ -5,48 +5,18 @@
     android:id="@+id/myTeamConstraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#003BBB"
     tools:context=".Fragment.MyTeamFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tv_MyTeam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="My Team"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/ic_Ball"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/ic_bg_tv"
-        android:drawableLeft="@drawable/ic_mt"
-        android:paddingStart="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="50dp"
-        app:layout_constraintBottom_toBottomOf="@+id/myTeamConstraint"
-        app:layout_constraintTop_toBottomOf="@+id/tv_MyTeam">
+        app:layout_constraintBottom_toBottomOf="@+id/myTeamConstraint">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:background="@drawable/bg_second_constraint">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -156,7 +126,6 @@
                     android:id="@+id/linearLayout3"
                     android:layout_width="66dp"
                     android:layout_height="55dp"
-                    android:layout_marginStart="19dp"
                     android:layout_marginBottom="18dp"
                     android:background="@drawable/bg_google"
                     android:orientation="vertical"
@@ -198,7 +167,6 @@
                     android:id="@+id/linearLayout4"
                     android:layout_width="66dp"
                     android:layout_height="55dp"
-                    android:layout_marginStart="19dp"
                     android:layout_marginBottom="18dp"
                     android:background="@drawable/bg_google"
                     android:orientation="vertical"
@@ -240,7 +208,6 @@
                     android:id="@+id/linearLayout6"
                     android:layout_width="66dp"
                     android:layout_height="55dp"
-                    android:layout_marginStart="17dp"
                     android:layout_marginBottom="18dp"
                     android:background="@drawable/bg_google"
                     android:orientation="vertical"
