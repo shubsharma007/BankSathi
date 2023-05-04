@@ -5,10 +5,14 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import com.example.bank_ui.Adapter.OnBoardingPagerAdapter;
 import com.example.bank_ui.LoginActivity.LoginActivity;
@@ -22,10 +26,11 @@ import java.util.List;
 
 public class SliderActivity extends AppCompatActivity {
     ActivitySliderBinding binding;
-    private ViewPager screenPager;
-    OnBoardingPagerAdapter introViewPagerAdapter;
-    int position = 0;
-    Animation btnAni;
+    OnBoardingPagerAdapter adapter;
+    TextView[] dots;
+    Animation animation;
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,104 +39,100 @@ public class SliderActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
-        //btnAnimation
-        btnAni = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.botton_animation);
-
-        //Make The Activity On Full Screen 
-
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-
-        //when This Activity Is About Launch We Need To Check id its Opened Before Or Not
-        if (restorePrefData()) {
-            startActivity(new Intent(this, LoginActivity.class));
-            finish();
-        }
-        //Fill List Screen
-        List<SliderModel> sList = new ArrayList<>();
-        sList.add(new SliderModel(R.drawable.slider_img1));
-        sList.add(new SliderModel(R.drawable.slider_img2));
-
-        // setup ViewPager
-        screenPager = findViewById(R.id.viewPager);
-        introViewPagerAdapter = new OnBoardingPagerAdapter(this, sList);
-        screenPager.setAdapter(introViewPagerAdapter);
-
-        //setup tabLayout with ViewPager
-        binding.tabIndicator.setupWithViewPager(screenPager);
-
-        binding.tvSkip.setOnClickListener(v -> {
-            startActivity(new Intent(this, LoginActivity.class));
-        });
-        binding.tvGetStart.setOnClickListener(v -> {
-
-            startActivity(new Intent(this, LoginActivity.class));
-
-            savePrefsDAta();
-            finish();
-        });
-        binding.tvNext.setOnClickListener(v -> {
-
-            position = screenPager.getCurrentItem();
-            if (position < sList.size()) {
-                position++;
-                screenPager.setCurrentItem(position);
-
-            }
-            if (position == sList.size() - 1) {
-
-                loadLastScreen();
-
-            }
-        });
-        binding.tabIndicator.addOnTabSelectedListener(new TabLayout.BaseOnTabSelectedListener() {
+        ViewPager.OnPageChangeListener viewPagerListener = new ViewPager.OnPageChangeListener() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getPosition() == sList.size() - 1) {
-                    loadLastScreen();
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
 
+            @Override
+            public void onPageSelected(int position) {
+                // calling setDotIndicator and passing position jaha pe active dot ko set krna he
+                setDotIndicator(position);
+                if (position > 0) {
+                    binding.backBtn.setVisibility(View.VISIBLE);
+                } else {
+                    binding.backBtn.setVisibility(View.INVISIBLE);
                 }
-
+                if (position == 2) {
+                    binding.nextBtn.setText("Finish");
+//                binding.nextBtn.setAnimation(animation);
+                    binding.skipBtn.setVisibility(View.GONE);
+                } else {
+                    binding.nextBtn.setText("Next");
+                    binding.skipBtn.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
+            public void onPageScrollStateChanged(int state) {
             }
+        };
 
+
+        //btnAnimation
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.botton_animation);
+
+        adapter = new OnBoardingPagerAdapter(this);
+        // viewpager ko link kiya with adapter
+        binding.viewPager.setAdapter(adapter);
+        binding.viewPager.addOnPageChangeListener(viewPagerListener);
+
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
+            public void onClick(View v) {
+                if (getItem(0) > 0) {
+                    binding.viewPager.setCurrentItem(getItem(-1), true);
+                }
             }
         });
+        binding.nextBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (getItem(0) < 2) {
+                    binding.viewPager.setCurrentItem(getItem(1), true);
+                } else {
+                    intent = new Intent(SliderActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
+        binding.skipBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(SliderActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        setDotIndicator(0);
 
     }
 
-    private boolean restorePrefData() {
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
-        Boolean isIntroActivityOpenedBefore = pref.getBoolean("isIntroOpened", false);
-        return isIntroActivityOpenedBefore;
+    public void setDotIndicator(int position) {
+        dots = new TextView[3];
+        binding.dotIndicatorLinearLayout.removeAllViews();
 
+        for (int i = 0; i < dots.length; i++) {
+            dots[i] = new TextView(this);
+            dots[i].setText(Html.fromHtml("&#x2022", Html.FROM_HTML_MODE_LEGACY));
+            dots[i].setTextSize(35);
+            dots[i].setTextColor(Color.parseColor("#000000"));
+            binding.dotIndicatorLinearLayout.addView(dots[i]);
+        }
+        dots[position].setText(Html.fromHtml("&#x2022", Html.FROM_HTML_MODE_LEGACY));
+        dots[position].setTextColor(getResources().getColor(R.color.app_theme));
+        dots[position].setTextSize(38);
     }
 
-    private void savePrefsDAta() {
-
-        SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putBoolean("isIntroOpened", true);
-        editor.commit();
+    private int getItem(int i) {
+        return binding.viewPager.getCurrentItem() + i;
     }
 
-    private void loadLastScreen() {
-
-        binding.tvNext.setVisibility(View.INVISIBLE);
-        binding.tvGetStart.setVisibility(View.VISIBLE);
-        binding.tabIndicator.setVisibility(View.INVISIBLE);
-
-        //SetUp Animation
-        binding.tvGetStart.setAnimation(btnAni);
-
-    }
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.bank_ui.LoginActivity.LoginActivity;
+import com.example.bank_ui.MainActivity;
 import com.example.bank_ui.R;
 import com.example.bank_ui.databinding.ActivitySplashBinding;
 
@@ -41,13 +42,17 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (sharedPreferences.contains("onBoarding")) {
-                    intent = new Intent(Splash.this, LoginActivity.class);
+                if (sharedPreferences.contains("login")) {
+                    intent = new Intent(Splash.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    editor.putBoolean("onBoarding", true);
-                    editor.apply();
-                    intent = new Intent(Splash.this, SliderActivity.class);
+                    if (sharedPreferences.contains("onBoarding")) {
+                        intent = new Intent(Splash.this, LoginActivity.class);
+                    } else {
+                        editor.putBoolean("onBoarding", true);
+                        editor.apply();
+                        intent = new Intent(Splash.this, SliderActivity.class);
+                    }
                     startActivity(intent);
                 }
                 finish();
