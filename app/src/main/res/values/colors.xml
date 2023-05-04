@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="trans">#00FFFFFF</color>
     <color name="app_theme">#003BBB</color>
-
+    <color name="blue">#003BBB</color>
     <color name="lavender">#8692f7</color>
     <color name="grey">#808080</color>
 </resources>
