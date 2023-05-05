@@ -86,6 +86,7 @@ public class LoginActivity extends AppCompatActivity {
                 bundle.putString("verificationId", verificationId);
                 OtpVerification otpFragment = new OtpVerification();
                 otpFragment.setArguments(bundle);
+                Log.d("fdadfsdfas",verificationId);
                 Toast.makeText(getApplicationContext(),"OTP Send Successfully...", Toast.LENGTH_SHORT).show();
                 otpFragment.show(getSupportFragmentManager(), otpFragment.getTag());
 
