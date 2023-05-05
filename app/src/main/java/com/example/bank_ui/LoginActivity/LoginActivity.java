@@ -5,6 +5,7 @@ import static android.os.Build.VERSION_CODES.R;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.nfc.Tag;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.bank_ui.BottomSheets.OtpVerification;
@@ -58,15 +60,16 @@ public class LoginActivity extends AppCompatActivity {
 
         binding.loginBtn.setOnClickListener(view -> {
 
-//            OtpVerification otpFragment = new OtpVerification();
-//            otpFragment.show(getSupportFragmentManager(), otpFragment.getTag());
-//            intent.putExtra("mobile", binding.mobileEt.getText().toString());
             sendotp();
+
         });
     }
 
     private void sendotp() {
-
+        final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             @Override
@@ -85,8 +88,10 @@ public class LoginActivity extends AppCompatActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("verificationId", verificationId);
                 OtpVerification otpFragment = new OtpVerification();
+                progressDialog.dismiss();
                 otpFragment.setArguments(bundle);
-                Toast.makeText(getApplicationContext(),"OTP Send Successfully...", Toast.LENGTH_SHORT).show();
+                otpFragment.setCancelable(false);
+                Toast.makeText(getApplicationContext(), "OTP Send Successfully...", Toast.LENGTH_SHORT).show();
                 otpFragment.show(getSupportFragmentManager(), otpFragment.getTag());
 
             }
