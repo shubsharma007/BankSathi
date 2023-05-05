@@ -65,29 +65,40 @@
             app:layout_constraintStart_toStartOf="@+id/txtHii"
             app:layout_constraintTop_toBottomOf="@+id/txtHii" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ic_Question"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="28dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/ic_bg_tv"
-            android:drawableStart="@drawable/ic_question"
-            android:paddingStart="15dp"
+            android:src="@drawable/ic_question"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-            app:layout_constraintEnd_toStartOf="@+id/ic_Ball"
+            app:layout_constraintEnd_toStartOf="@+id/notificationBtn"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/ic_Ball"
+        <ru.nikartm.support.ImageBadgeView
+            android:id="@+id/notificationBtn"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="24dp"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            app:ibv_badgeValue="5"
+            app:ibv_badgeTextSize="8sp"
+            app:ibv_fixedBadgeRadius="10dp"
+            app:ibv_badgePosition="top_right"
+            app:ibv_badgeTextStyle="bold"
+            app:ibv_badgeTextColor="#ffffff"
+            app:ibv_badgeColor="#FF0000"
+            app:ibv_badgeLimitValue="false"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/ic_bg_tv"
-            android:drawableLeft="@drawable/ic_ball"
-            android:paddingStart="8dp"
+            android:src="@drawable/ic_ball"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+           />
+
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -98,10 +109,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
