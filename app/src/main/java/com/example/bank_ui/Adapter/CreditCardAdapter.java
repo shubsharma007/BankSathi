@@ -52,7 +52,8 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             btnQuickView = itemView.findViewById(R.id.btnFirstQV);
-//            shareBtn = btnQuickView.findViewById(R.id.shareBtn);
+
+            shareBtn = itemView.findViewById(R.id.shareBtn);
         }
     }
 }
