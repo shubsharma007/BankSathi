@@ -29,20 +29,20 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="38dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_button"
                     android:drawableLeft="@drawable/ic_camera"
                     android:drawablePadding="10dp"
                     android:gravity="center"
                     android:padding="5dp"
+                    android:textColor="@drawable/selector_text_color_black_white"
+                    android:background="@drawable/selector_home_horizontal_buttons"
                     android:text="Trading Video"
-                    android:textColor="#FFFFFF"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@+id/textView"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -54,13 +54,13 @@
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="38dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_google"
                     android:drawableLeft="@drawable/ic_welcome"
                     android:drawablePadding="10dp"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="Welcome Bonus"
-                    android:textColor="#000000"
+                    android:textColor="@drawable/selector_text_color_black_white"
+                    android:background="@drawable/selector_home_horizontal_buttons"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@+id/textView"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />

@@ -1,6 +1,8 @@
 package com.example.bank_ui.BottomSheets;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.text.Editable;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.bank_ui.MainActivity;
+import com.example.bank_ui.R;
 import com.example.bank_ui.databinding.FragmentOTPBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +41,9 @@ public class OtpVerification extends BottomSheetDialogFragment {
     String otpId;
     String otp;
 
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,7 +51,6 @@ public class OtpVerification extends BottomSheetDialogFragment {
         mAuth = FirebaseAuth.getInstance();
         String verificationId = getArguments().getString("verificationId");
         MoveNumToNext();
-
 
 
         binding.confirmBtn.setOnClickListener(v -> {
@@ -82,6 +87,12 @@ public class OtpVerification extends BottomSheetDialogFragment {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Intent intent = new Intent(getActivity(), MainActivity.class);
+
+                                    sharedPreferences = getActivity().getSharedPreferences(String.valueOf(R.string.sharedPreferenceName), Context.MODE_PRIVATE);
+                                    editor = sharedPreferences.edit();
+
+                                    editor.putBoolean("login", true);
+                                    editor.apply();
                                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                     startActivity(intent);
                                 } else {

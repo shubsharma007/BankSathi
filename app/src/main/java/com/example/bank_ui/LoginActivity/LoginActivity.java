@@ -90,8 +90,9 @@ public class LoginActivity extends AppCompatActivity {
                 OtpVerification otpFragment = new OtpVerification();
                 progressDialog.dismiss();
                 otpFragment.setArguments(bundle);
+                Log.d("fdadfsdfas",verificationId);
+                Toast.makeText(getApplicationContext(),"OTP Send Successfully...", Toast.LENGTH_SHORT).show();
                 otpFragment.setCancelable(false);
-                Toast.makeText(getApplicationContext(), "OTP Send Successfully...", Toast.LENGTH_SHORT).show();
                 otpFragment.show(getSupportFragmentManager(), otpFragment.getTag());
 
             }
