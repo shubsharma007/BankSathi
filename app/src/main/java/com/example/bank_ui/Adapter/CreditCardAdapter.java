@@ -47,7 +47,7 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         AppCompatButton btnQuickView;
-//        TextView shareBtn;
+        TextView shareBtn;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
