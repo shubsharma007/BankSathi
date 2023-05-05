@@ -10,6 +10,7 @@ import com.example.bank_ui.Fragment.HomeFragment;
 import com.example.bank_ui.Fragment.LeadFragment;
 import com.example.bank_ui.Fragment.MyTeamFragment;
 import com.example.bank_ui.Fragment.RrferralFragment;
+import com.example.bank_ui.NotificationActivity.Notification;
 import com.example.bank_ui.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,8 +21,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-         
-        getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new HomeFragment()).commit();
+
+        binding.notificationBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.notificationBtn.setBadgeValue(64);
+                startActivity(new Intent(MainActivity.this, Notification.class));
+
+            }
+        });
+
+
+        getSupportFragmentManager().beginTransaction().add(R.id.constraintLayout, new HomeFragment()).commit();
         binding.txtHii.setVisibility(View.VISIBLE);
         binding.txtName.setVisibility(View.VISIBLE);
         binding.icQuestion.setVisibility(View.VISIBLE);
