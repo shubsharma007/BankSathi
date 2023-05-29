@@ -1,5 +1,6 @@
 package com.example.bank_ui.LoginActivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
@@ -80,13 +81,17 @@ public class Signup extends AppCompatActivity {
                         progressDialog.setMessage("please wait...");
                         progressDialog.show();
 
-                        Call<SignUpResponse> call = apiInterface.postSignUpResponse(fullName, username, phoneNumber, password);
+                        Call<SignUpResponse> call = apiInterface.postSignUpResponse(fullName, username, phoneNumber, password, true);
                         call.enqueue(new Callback<SignUpResponse>() {
                             @Override
-                            public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
+                            public void onResponse(@NonNull Call<SignUpResponse> call, @NonNull Response<SignUpResponse> response) {
                                 if (response.isSuccessful()) {
                                     startActivity(new Intent(Signup.this, MainActivity.class));
                                     editor.putBoolean("login", true);
+//                                    editor.putString("fullName", fullName);
+//                                    editor.putString("userName", username);
+//                                    editor.putString("phoneNumber", phoneNumber);
+//                                    editor.putString("password", password);
                                     editor.apply();
                                     progressDialog.dismiss();
                                     finish();
@@ -104,7 +109,7 @@ public class Signup extends AppCompatActivity {
 //                                            Toast.makeText(Signup.this, "A user with that username already exists", Toast.LENGTH_SHORT).show();
 //                                        }
 //                                    }
-                                    }
+                                }
                             }
 
                             @Override

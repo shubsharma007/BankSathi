@@ -116,7 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Login Successful...", Toast.LENGTH_SHORT).show();
                             } else {
                                 progressDialog.dismiss();
-                                Toast.makeText(LoginActivity.this, "Number and password incorrect...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Number or password incorrect...", Toast.LENGTH_SHORT).show();
                             }
                         }
 
