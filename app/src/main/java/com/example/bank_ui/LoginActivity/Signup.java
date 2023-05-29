@@ -94,7 +94,7 @@ public class Signup extends AppCompatActivity {
 
                                 } else {
                                     progressDialog.dismiss();
-//
+
 //                                    if (response.body().getPhoneno() != null && !response.body().getPhoneno().isEmpty()){
 //                                        if (phoneNumber.equals(response.body().getPhoneno())) {
 //                                            Toast.makeText(Signup.this, "user with this phone number already exists.", Toast.LENGTH_SHORT).show();
