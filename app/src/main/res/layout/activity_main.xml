@@ -16,13 +16,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!--                <de.hdodenhof.circleimageview.CircleImageView-->
-        <!--                    android:id="@+id/profile_image"-->
-        <!--                    android:layout_width="96dp"-->
-        <!--                    android:layout_height="96dp"-->
-        <!--                    android:src="@drawable/profile"-->
-        <!--                    app:civ_border_width="2dp"-->
-        <!--                    app:civ_border_color="#FF000000"/>-->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/profile"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/maintext"
@@ -42,28 +44,27 @@
             android:id="@+id/txtHii"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="15dp"
             android:text="Hiiii"
+            android:layout_marginStart="5dp"
             android:textColor="#80FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold"
             android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/txtName"
+            app:layout_constraintStart_toEndOf="@+id/userProfile"
+            app:layout_constraintTop_toTopOf="@+id/userProfile" />
 
         <TextView
             android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="28dp"
-            android:layout_marginTop="8dp"
             android:text="Jonny Wilson"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold"
             android:visibility="visible"
-            app:layout_constraintStart_toStartOf="@+id/txtHii"
-            app:layout_constraintTop_toBottomOf="@+id/txtHii" />
+            app:layout_constraintBottom_toBottomOf="@+id/userProfile"
+            app:layout_constraintStart_toStartOf="@+id/txtHii" />
 
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/ic_Question"
@@ -81,23 +82,21 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:padding="5dp"
-            app:ibv_badgeValue="5"
-            app:ibv_badgeTextSize="8sp"
-            app:ibv_fixedBadgeRadius="10dp"
-            app:ibv_badgePosition="top_right"
-            app:ibv_badgeTextStyle="bold"
-            app:ibv_badgeTextColor="#ffffff"
-            app:ibv_badgeColor="#FF0000"
-            app:ibv_badgeLimitValue="false"
             android:layout_marginEnd="20dp"
             android:background="@drawable/ic_bg_tv"
+            android:padding="5dp"
             android:src="@drawable/ic_ball"
+            app:ibv_badgeColor="#FF0000"
+            app:ibv_badgeLimitValue="false"
+            app:ibv_badgePosition="top_right"
+            app:ibv_badgeTextColor="#ffffff"
+            app:ibv_badgeTextSize="8sp"
+            app:ibv_badgeTextStyle="bold"
+            app:ibv_badgeValue="5"
+            app:ibv_fixedBadgeRadius="10dp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-           />
-
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -109,7 +108,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

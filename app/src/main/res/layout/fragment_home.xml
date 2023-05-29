@@ -36,14 +36,15 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="38dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/selector_home_horizontal_buttons"
                     android:drawableLeft="@drawable/ic_camera"
                     android:drawablePadding="10dp"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:textColor="@drawable/selector_text_color_black_white"
-                    android:background="@drawable/selector_home_horizontal_buttons"
                     android:text="Trading Video"
+                    android:textColor="@drawable/selector_text_color_black_white"
                     android:textSize="13sp"
+                    android:textStyle="normal"
                     app:layout_constraintStart_toStartOf="@+id/textView"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -54,13 +55,13 @@
                     android:layout_marginStart="40dp"
                     android:layout_marginTop="38dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/selector_home_horizontal_buttons"
                     android:drawableLeft="@drawable/ic_welcome"
                     android:drawablePadding="10dp"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="Welcome Bonus"
                     android:textColor="@drawable/selector_text_color_black_white"
-                    android:background="@drawable/selector_home_horizontal_buttons"
                     android:textSize="13sp"
                     app:layout_constraintStart_toStartOf="@+id/textView"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -143,7 +144,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginStart="17dp"
-                            android:text="Totle Earning"
+                            android:text="Total Earning"
                             android:textColor="@color/white"
                             android:textSize="14dp"
                             android:textStyle="normal" />
@@ -169,7 +170,7 @@
                         android:layout_marginTop="18dp"
                         android:layout_marginBottom="18dp"
                         android:background="@drawable/bg_google"
-                        android:text="ADD LEAD And EARN">
+                        android:text="ADD LEAD &amp; EARN">
 
                     </androidx.appcompat.widget.AppCompatButton>
                 </LinearLayout>
@@ -180,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="25dp"
-                    android:text="Sell And Earn"
+                    android:text="Sell &amp; Earn"
                     android:textColor="#011222"
                     android:textSize="16sp"
                     android:textStyle="bold"

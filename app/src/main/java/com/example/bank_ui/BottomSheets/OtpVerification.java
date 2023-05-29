@@ -1,5 +1,6 @@
 package com.example.bank_ui.BottomSheets;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.bank_ui.LoginActivity.LoginActivity;
 import com.example.bank_ui.MainActivity;
 import com.example.bank_ui.R;
 import com.example.bank_ui.databinding.FragmentOTPBinding;
@@ -48,10 +50,17 @@ public class OtpVerification extends BottomSheetDialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentOTPBinding.inflate(inflater, container, false);
+        final ProgressDialog dialog = new ProgressDialog(getContext());
+        dialog.setCancelable(false);
+        dialog.setMessage("Loading...");
+
+
         mAuth = FirebaseAuth.getInstance();
         String verificationId = getArguments().getString("verificationId");
+        String number = getArguments().getString("number");
         MoveNumToNext();
 
+        binding.textView2.setText("Enter OTP code send to your number\n+91 " + number);
 
         binding.confirmBtn.setOnClickListener(v -> {
             if (binding.otp1.getText().toString().trim().isEmpty()) {
@@ -71,6 +80,7 @@ public class OtpVerification extends BottomSheetDialogFragment {
             } else if (binding.otp6.getText().toString().trim().isEmpty()) {
                 Toast.makeText(getActivity(), "Enter Otp", Toast.LENGTH_SHORT).show();
             } else {
+                dialog.show();
                 otp = binding.otp1.getText().toString()
                         + binding.otp2.getText().toString()
                         + binding.otp3.getText().toString()
@@ -86,6 +96,7 @@ public class OtpVerification extends BottomSheetDialogFragment {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    dialog.dismiss();
                                     Intent intent = new Intent(getActivity(), MainActivity.class);
 
                                     sharedPreferences = getActivity().getSharedPreferences(String.valueOf(R.string.sharedPreferenceName), Context.MODE_PRIVATE);
@@ -97,6 +108,7 @@ public class OtpVerification extends BottomSheetDialogFragment {
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(getActivity(), "OTP is not valid...", Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
                                 }
                             }
                         });

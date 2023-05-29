@@ -27,7 +27,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="8dp"
         android:minLines="2"
-        android:text="EnterOTP code send to your number\n+91 8839039838"
+        android:text=""
         android:textColor="#92FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textView"

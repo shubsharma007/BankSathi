@@ -11,6 +11,7 @@ import com.example.bank_ui.Fragment.LeadFragment;
 import com.example.bank_ui.Fragment.MyTeamFragment;
 import com.example.bank_ui.Fragment.RrferralFragment;
 import com.example.bank_ui.NotificationActivity.Notification;
+import com.example.bank_ui.ProfileActivity.ProfileActivity;
 import com.example.bank_ui.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
+        binding.userProfile.setOnClickListener(v -> {
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+        });
 
         getSupportFragmentManager().beginTransaction().add(R.id.constraintLayout, new HomeFragment()).commit();
         binding.txtHii.setVisibility(View.VISIBLE);

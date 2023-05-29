@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:state_enabled="true">
-        <color android:color="@color/lavender"/>
-    </item>
-</selector>
+    <solid android:color="@color/lavender" />
+    <corners android:radius="10dp" />
+</shape>

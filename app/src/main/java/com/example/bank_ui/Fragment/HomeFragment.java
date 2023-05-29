@@ -18,6 +18,7 @@ import com.example.bank_ui.databinding.FragmentHomeBinding;
 public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
 
+    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
