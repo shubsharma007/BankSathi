@@ -94,7 +94,8 @@ public class Signup extends AppCompatActivity {
 
                                 } else {
                                     progressDialog.dismiss();
-
+                                    Log.d("OnResponseElse", response.message());
+                                    Toast.makeText(Signup.this, "OnResponseElse", Toast.LENGTH_SHORT).show();
 //                                    if (response.body().getPhoneno() != null && !response.body().getPhoneno().isEmpty()){
 //                                        if (phoneNumber.equals(response.body().getPhoneno())) {
 //                                            Toast.makeText(Signup.this, "user with this phone number already exists.", Toast.LENGTH_SHORT).show();
@@ -104,12 +105,13 @@ public class Signup extends AppCompatActivity {
 //                                            Toast.makeText(Signup.this, "A user with that username already exists", Toast.LENGTH_SHORT).show();
 //                                        }
 //                                    }
-                                    }
+                                }
                             }
 
                             @Override
                             public void onFailure(Call<SignUpResponse> call, Throwable t) {
                                 progressDialog.dismiss();
+                                Log.d("OnFailure", t.getMessage());
                                 Toast.makeText(Signup.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
                             }
