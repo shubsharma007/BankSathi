@@ -76,14 +76,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:text="Email"
+                android:text="Username"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/lavender"
                 android:textSize="14sp"
                 android:textStyle="bold" />
-
             <EditText
-                android:id="@+id/emailEt"
+                android:id="@+id/usernameEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
@@ -91,10 +90,11 @@
                 android:background="@drawable/bg_textview"
                 android:drawableStart="@drawable/ic_fullname"
                 android:drawablePadding="8dp"
-                android:hint="Enter Email"
+                android:hint="Enter Username"
                 android:layout_marginTop="1dp"
                 android:paddingHorizontal="5dp"
                 android:paddingVertical="12dp" />
+
 
 
             <TextView
@@ -128,10 +128,34 @@
                     android:id="@+id/mobileEt"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:background="#00000000"
                     android:hint="Mobile No"
                     android:maxLength="12"
                     android:inputType="number" />
             </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="Password"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/lavender"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/passwordEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_textview"
+                android:drawableStart="@drawable/ic_lock"
+                android:drawablePadding="8dp"
+                android:hint="Enter Password"
+                android:layout_marginTop="1dp"
+                android:paddingHorizontal="5dp"
+                android:paddingVertical="12dp" />
             <TextView
                 android:id="@+id/clickForLogin"
                 android:layout_width="wrap_content"
