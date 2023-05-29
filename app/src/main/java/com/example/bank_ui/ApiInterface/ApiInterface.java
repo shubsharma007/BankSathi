@@ -20,5 +20,6 @@ public interface ApiInterface {
     Call<SignUpResponse> postSignUpResponse(@Field("fullname") String fullname,
                                             @Field("username") String username,
                                             @Field("phoneno") String phoneno,
-                                            @Field("password") String password);
+                                            @Field("password") String password,
+                                            @Field("is_staff")boolean is_staff);
 }
