@@ -3,9 +3,11 @@ package com.example.bank_ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.example.bank_ui.Fragment.HomeFragment;
 import com.example.bank_ui.Fragment.LeadFragment;
 import com.example.bank_ui.Fragment.MyTeamFragment;
@@ -17,11 +19,17 @@ import com.example.bank_ui.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
 
+    int Id;
+    String name;
+    String profileImg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        getSaved();
 
         binding.notificationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +92,33 @@ public class MainActivity extends AppCompatActivity {
 //            startActivity(intent);
 //
 //        });
+
+    }
+
+    private void getSaved() {
+        SharedPreferences sharedPreferences = getSharedPreferences("youtubeSathi", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+//        editor.putString("fullName", fullName);
+//        editor.putString("userName", username);
+//        editor.putString("phoneNumber", phoneNumber);
+//        editor.putString("password", password);
+//        editor.putInt("id", response.body().getId());
+//        editor.putString("profileImg", "");
+//        editor.putString("email", "");
+//        editor.putString("dob", "");
+//        editor.putString("pinCode", "");
+
+        Id = sharedPreferences.getInt("id", 0);
+        name = sharedPreferences.getString("fullName", "");
+        binding.txtName.setText(name);
+
+        if (sharedPreferences.getString("profileImg", "").equals("")) {
+            profileImg = "";
+        } else {
+            profileImg = sharedPreferences.getString("profileImg", "");
+            Glide.with(MainActivity.this).load(profileImg).centerCrop().placeholder(R.drawable.profile).into(binding.userProfile);
+        }
 
     }
 }

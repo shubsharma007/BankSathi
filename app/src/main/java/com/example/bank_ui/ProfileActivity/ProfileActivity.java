@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
 import com.example.bank_ui.LoginActivity.LoginActivity;
+import com.example.bank_ui.MainActivity;
 import com.example.bank_ui.R;
 import com.example.bank_ui.databinding.ActivityProductBinding;
 import com.example.bank_ui.databinding.ActivityProfileBinding;
@@ -19,15 +21,18 @@ public class ProfileActivity extends AppCompatActivity {
     ActivityProfileBinding binding;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    String name, dob, profileImg, address, email, username;
+    int Id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        getSaved();
         //  sharedPreferences
-        sharedPreferences = this.getSharedPreferences(String.valueOf(R.string.sharedPreferenceName), Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+
 
         binding.btnBack.setOnClickListener(v -> {
             finish();
@@ -61,5 +66,50 @@ public class ProfileActivity extends AppCompatActivity {
             alertDialog.show();
 
         });
+    }
+
+    private void getSaved() {
+        sharedPreferences = this.getSharedPreferences(String.valueOf(R.string.sharedPreferenceName), Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+//        editor.putString("fullName", fullName);
+//        editor.putString("userName", username);
+//        editor.putString("phoneNumber", phoneNumber);
+//        editor.putString("password", password);
+//        editor.putInt("id", response.body().getId());
+//        editor.putString("profileImg", "");
+//        editor.putString("email", "");
+//        editor.putString("dob", "");
+//        editor.putString("pinCode", "");
+        Id = sharedPreferences.getInt("id", 0);
+
+        name = sharedPreferences.getString("fullName", "");
+        binding.txtUserName.setText(name);
+
+        username = sharedPreferences.getString("userName", "");
+        binding.txtName.setText(username);
+
+        if (sharedPreferences.getString("profileImg", "").equals("")) {
+            profileImg = "";
+        } else {
+            profileImg = sharedPreferences.getString("profileImg", "");
+            Glide.with(ProfileActivity.this).load(profileImg).centerCrop().placeholder(R.drawable.profile).into(binding.userProfile);
+        }
+
+        if (sharedPreferences.getString("dob", "").equals("")) {
+            dob = "";
+            binding.txtDOB.setHint("update your date of birth");
+        } else {
+            dob = sharedPreferences.getString("dob", "");
+            binding.txtDOB.setText(dob);
+        }
+
+        if (sharedPreferences.getString("email", "").equals("")) {
+            email = "";
+            binding.txtEmail.setHint("update your email address");
+        } else {
+            email = sharedPreferences.getString("email", "");
+            binding.txtEmail.setText(email);
+        }
+
     }
 }
