@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-
 import com.bumptech.glide.Glide;
 import com.example.bank_ui.Fragment.HomeFragment;
 import com.example.bank_ui.Fragment.LeadFragment;

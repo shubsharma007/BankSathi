@@ -81,7 +81,7 @@
                     android:textColor="@color/grey"
                     android:textSize="14dp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtUserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
                     android:textColor="@color/grey"
                     android:textSize="14dp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                     android:textColor="@color/grey"
                     android:textSize="14dp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtDOB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
                     android:textColor="@color/grey"
                     android:textSize="14dp" />
 
-                <TextView
+                <EditText
                     android:id="@+id/txtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -148,9 +148,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="70dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/selector_home_horizontal_buttons"
                 android:padding="10dp"
-                android:layout_marginBottom="10dp"
                 android:text="Logout"
                 android:textAllCaps="false"
                 android:textColor="#fff"
