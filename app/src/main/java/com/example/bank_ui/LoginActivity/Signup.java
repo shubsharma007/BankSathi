@@ -86,21 +86,29 @@ public class Signup extends AppCompatActivity {
                             @Override
                             public void onResponse(@NonNull Call<SignUpResponse> call, @NonNull Response<SignUpResponse> response) {
                                 if (response.isSuccessful()) {
-                                    startActivity(new Intent(Signup.this, MainActivity.class));
-                                    editor.putBoolean("login", true);
-//                                    editor.putString("fullName", fullName);
-//                                    editor.putString("userName", username);
-//                                    editor.putString("phoneNumber", phoneNumber);
-//                                    editor.putString("password", password);
-                                    editor.apply();
                                     progressDialog.dismiss();
-                                    finish();
-                                    Toast.makeText(Signup.this, "SignUp Successful...", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Signup.this, "SignUp Successfull...", Toast.LENGTH_SHORT).show();
+                                    editor.putBoolean("login", true);
+                                    editor.putString("fullName", fullName);
+                                    editor.putString("userName", username);
+                                    editor.putString("phoneNumber", phoneNumber);
+                                    editor.putString("password", password);
+                                    editor.putInt("id", response.body().getId());
+                                    editor.putString("profileImg", "");
+                                    editor.putString("email", "");
+                                    editor.putString("dob", "");
+                                    editor.putString("pinCode", "");
+                                    editor.apply();
+                                    Log.d("IdGeneratedIs", String.valueOf(response.body().getId()));
 
+                                    startActivity(new Intent(Signup.this, MainActivity.class));
+                                    finish();
                                 } else {
                                     progressDialog.dismiss();
                                     Log.d("OnResponseElse", response.message());
                                     Toast.makeText(Signup.this, "OnResponseElse", Toast.LENGTH_SHORT).show();
+
+
 //                                    if (response.body().getPhoneno() != null && !response.body().getPhoneno().isEmpty()){
 //                                        if (phoneNumber.equals(response.body().getPhoneno())) {
 //                                            Toast.makeText(Signup.this, "user with this phone number already exists.", Toast.LENGTH_SHORT).show();
