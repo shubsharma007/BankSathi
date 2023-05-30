@@ -10,7 +10,7 @@
         android:id="@+id/leads"/>
     <item android:id="@+id/fab"
         android:title=""
-        android:enabled="false"/>
+        android:enabled="true"/>
     <item android:title="Referral"
         android:icon="@drawable/ic_rrferral"
         android:id="@+id/referral"/>
