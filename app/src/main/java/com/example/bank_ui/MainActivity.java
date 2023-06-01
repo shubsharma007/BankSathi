@@ -107,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
 //        editor.putString("email", "");
 //        editor.putString("dob", "");
 //        editor.putString("pinCode", "");
+//        editor.putString("address", "");
 
         Id = sharedPreferences.getInt("id", 0);
         name = sharedPreferences.getString("fullName", "");

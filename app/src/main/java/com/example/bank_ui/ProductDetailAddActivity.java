@@ -59,7 +59,7 @@ public class ProductDetailAddActivity extends AppCompatActivity {
             addDialog.show();
         });
         binding.buttonBack.setOnClickListener(v -> {
-            startActivity(new Intent(getApplicationContext(), ProductActivity.class));
+
             finish();
         });
 

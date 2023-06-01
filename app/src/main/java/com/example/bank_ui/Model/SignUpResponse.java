@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class SignUpResponse {
-
     @SerializedName("msg")
     @Expose
     private String msg;
@@ -28,6 +27,9 @@ public class SignUpResponse {
     @SerializedName("dateofbirth")
     @Expose
     private String dateofbirth;
+    @SerializedName("address")
+    @Expose
+    private String address;
     @SerializedName("pincode")
     @Expose
     private String pincode;
@@ -91,6 +93,14 @@ public class SignUpResponse {
         this.dateofbirth = dateofbirth;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getPincode() {
         return pincode;
     }
@@ -106,5 +116,4 @@ public class SignUpResponse {
     public void setProfileimg(String profileimg) {
         this.profileimg = profileimg;
     }
-
 }

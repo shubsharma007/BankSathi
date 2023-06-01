@@ -5,20 +5,27 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.bank_ui.Model.CreditCardResponse;
 import com.example.bank_ui.ProductActivity;
 import com.example.bank_ui.R;
 
+import java.util.List;
+
 public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.MyViewHolder> {
     Context context;
+    List<CreditCardResponse> singleUnit;
 
-    public CreditCardAdapter(Context context) {
+    public CreditCardAdapter(Context context, List<CreditCardResponse> singleUnit) {
         this.context = context;
+        this.singleUnit = singleUnit;
     }
 
     @NonNull
@@ -31,8 +38,18 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull CreditCardAdapter.MyViewHolder holder, int position) {
+
+        CreditCardResponse response = singleUnit.get(position);
+
+        Glide.with(context).load(response.getBanklogo()).into(holder.imgLogo);
+        holder.txtBankName.setText(response.getCardname());
+        holder.txtDisc.setText(response.getDiscription());
+        holder.txtEarnUpTo.setText(response.getEarnupto());
         holder.btnQuickView.setOnClickListener(v -> {
             Intent intent = new Intent(context, ProductActivity.class);
+
+            intent.putExtra("Id", response.getId());
+
             context.startActivity(intent);
         });
 //        holder.shareBtn.setOnClickListener(v -> {
@@ -42,18 +59,22 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
 
     @Override
     public int getItemCount() {
-        return 10;
+        return singleUnit.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         AppCompatButton btnQuickView;
-        TextView shareBtn;
+        TextView shareBtn, txtBankName, txtDisc, txtEarnUpTo;
+        ImageView imgLogo;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             btnQuickView = itemView.findViewById(R.id.btnFirstQV);
-
             shareBtn = itemView.findViewById(R.id.shareBtn);
+            imgLogo = itemView.findViewById(R.id.imgLogo);
+            txtBankName = itemView.findViewById(R.id.txtBankName);
+            txtDisc = itemView.findViewById(R.id.txtDisc);
+            txtEarnUpTo = itemView.findViewById(R.id.txtEarnUpTo);
         }
     }
 }

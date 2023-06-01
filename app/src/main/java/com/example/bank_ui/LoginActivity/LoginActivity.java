@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     ApiInterface apiInterface;
     String mobile, password;
-
+    String finalProfileImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,7 +109,28 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                             if (response.isSuccessful()) {
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                                editor.putBoolean("login",true);
+                                editor.putBoolean("login", true);
+                                LoginResponse singliUnit = response.body();
+
+
+                                editor.putString("fullName", singliUnit.getFullname());
+                                editor.putString("userName", singliUnit.getUsername());
+                                editor.putString("phoneNumber", singliUnit.getPhoneNo());
+//                                editor.putString("password", password);
+                                editor.putInt("id", singliUnit.getId());
+
+                                if (singliUnit.getProfileimg() != null && !singliUnit.getProfileimg().isEmpty() && !singliUnit.getProfileimg().equals("")) {
+//                                    finalProfileImage = "https://saathi.techpanda.art/" + singliUnit.getProfileimg().substring(singliUnit.getProfileimg().lastIndexOf("profileimage") + 1);
+                                    finalProfileImage = "https://saathi.techpanda.art/BankSathi/media/profileimage" + singliUnit.getProfileimg().split("ofileimage")[1];
+
+                                }
+                                Log.d("finalImage", finalProfileImage);
+                                editor.putString("profileImg", finalProfileImage);
+                                editor.putString("email", singliUnit.getEmail());
+                                editor.putString("dob", singliUnit.getDateofbirth());
+                                editor.putString("pinCode", singliUnit.getPincode());
+                                editor.putString("address", singliUnit.getAddress());
+
                                 editor.apply();
                                 progressDialog.dismiss();
                                 finish();

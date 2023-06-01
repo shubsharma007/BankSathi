@@ -1,35 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        app:cardElevation="5dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_height="wrap_content">
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/firstConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_bg_tv">
 
-
-            <ImageView
-                android:id="@+id/btnAsisLogo"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_axis"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgCard"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:layout_marginStart="12sp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="65dp"
+                    android:layout_height="65dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_axis" />
+
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
-                android:id="@+id/txtFirst"
-                app:layout_constraintStart_toEndOf="@+id/btnAsisLogo"
-                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/txtBankName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
@@ -37,41 +47,45 @@
                 android:text="Axis Bank Credit Card"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/imgCard"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textSecond"
-                app:layout_constraintStart_toEndOf="@+id/btnAsisLogo"
-                app:layout_constraintTop_toBottomOf="@+id/txtFirst"
-                android:layout_width="wrap_content"
+                android:id="@+id/txtDisc"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="Exciting Cashback Uncapped\nReward Points"
                 android:textColor="#80000000"
-                android:textSize="10sp" />
+                android:textSize="10sp"
+                app:layout_constraintEnd_toStartOf="@+id/txtThird"
+                app:layout_constraintStart_toEndOf="@+id/imgCard"
+                app:layout_constraintTop_toBottomOf="@+id/txtBankName" />
 
             <TextView
                 android:id="@+id/txtThird"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="15dp"
                 android:drawableLeft="@drawable/ic_fav"
-                android:padding="10dp" />
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                app:layout_constraintBottom_toTopOf="@+id/viewFirst"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtThird"
                 android:layout_width="117dp"
                 android:layout_height="17dp"
-                android:layout_marginTop="29dp"
-                android:layout_marginBottom="10dp"
                 android:background="#80FC6A00"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/viewFirst"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtThird">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -80,6 +94,7 @@
                     android:textSize="10sp" />
 
                 <TextView
+                    android:id="@+id/txtEarnUpTo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="13dp"
@@ -90,20 +105,16 @@
 
             <View
                 android:id="@+id/viewFirst"
-                app:layout_constraintTop_toBottomOf="@+id/textSecond"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginEnd="15dp"
-                android:background="#80000000" />
+                android:background="#80000000"
+                app:layout_constraintTop_toBottomOf="@+id/txtDisc" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnFirstQV"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewFirst"
-                app:layout_constraintTop_toTopOf="@+id/viewFirst"
                 android:layout_width="210dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="41dp"
@@ -113,21 +124,25 @@
                 android:text="Quick View"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="14sp">
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewFirst"
+                app:layout_constraintTop_toTopOf="@+id/viewFirst">
 
             </androidx.appcompat.widget.AppCompatButton>
 
             <TextView
                 android:id="@+id/shareBtn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnFirstQV"
-                app:layout_constraintTop_toBottomOf="@+id/viewFirst"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="21dp"
                 android:background="@drawable/bg_button"
                 android:drawableLeft="@drawable/ic_share2"
-                android:padding="14dp" />
+                android:padding="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnFirstQV"
+                app:layout_constraintTop_toBottomOf="@+id/viewFirst" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

@@ -98,6 +98,7 @@ public class Signup extends AppCompatActivity {
                                     editor.putString("email", "");
                                     editor.putString("dob", "");
                                     editor.putString("pinCode", "");
+                                    editor.putString("address", "");
                                     editor.apply();
                                     Log.d("IdGeneratedIs", String.valueOf(response.body().getId()));
 
