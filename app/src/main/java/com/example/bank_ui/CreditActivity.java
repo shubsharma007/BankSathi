@@ -15,6 +15,7 @@ import com.example.bank_ui.ApiInterface.ApiInterface;
 import com.example.bank_ui.Model.CreditCardResponse;
 import com.example.bank_ui.Retrofit.RetrofitServices;
 import com.example.bank_ui.databinding.ActivityCreditBinding;
+import com.google.firebase.iid.FirebaseInstanceIdReceiver;
 
 import java.util.List;
 import java.util.Objects;
@@ -42,20 +43,26 @@ public class CreditActivity extends AppCompatActivity {
         from = getIntent().getStringExtra("from");
 
         if (Objects.equals(from, "CC")) {
+            binding.tvH.setText("Credit Cards");
             call = apiInterface.getCreditCard();
         } else if (Objects.equals(from, "DA")) {
+            binding.tvH.setText("Demat Account");
             call = apiInterface.getDemetAccount();
         } else if (Objects.equals(from, "BA")) {
+            binding.tvH.setText("Bank Account");
             call = apiInterface.getBankAccount();
         } else if (Objects.equals(from, "GL")) {
+            binding.tvH.setText("Gold Loan");
             call = apiInterface.getGoldLoan();
         } else if (Objects.equals(from, "PL")) {
+
+            binding.tvH.setText("Personal Loan");
             call = apiInterface.getPersonalLoan();
         }
         //Insurance(IN)
         else {
             call = apiInterface.getInsurance();
-
+            binding.tvH.setText("Insurance");
         }
 
         binding.loadingCard.setVisibility(View.VISIBLE);
