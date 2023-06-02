@@ -97,6 +97,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/icToolTip"
+            android:layout_width="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_height="40dp"
+            android:visibility="gone"
+            android:background="@drawable/ic_bg_tv"
+            android:src="@drawable/ic_tooltip"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"

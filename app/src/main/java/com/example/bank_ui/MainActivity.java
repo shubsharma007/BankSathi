@@ -69,13 +69,17 @@ public class MainActivity extends AppCompatActivity {
         binding.txtHii.setVisibility(View.VISIBLE);
         binding.txtName.setVisibility(View.VISIBLE);
         binding.icQuestion.setVisibility(View.VISIBLE);
+        binding.icToolTip.setVisibility(View.GONE);
         binding.maintext.setVisibility(View.GONE);
+        binding. notificationBtn.setVisibility(View.VISIBLE);
         binding.navigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
                     getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new HomeFragment()).commit();
                     binding.txtHii.setVisibility(View.VISIBLE);
                     binding.txtName.setVisibility(View.VISIBLE);
+                    binding. notificationBtn.setVisibility(View.VISIBLE);
+                    binding.icToolTip.setVisibility(View.GONE);
                     binding.icQuestion.setVisibility(View.VISIBLE);
                     binding.maintext.setVisibility(View.GONE);
                     break;
@@ -85,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                     binding.txtHii.setVisibility(View.GONE);
                     binding.txtName.setVisibility(View.GONE);
                     binding.icQuestion.setVisibility(View.GONE);
+                    binding.icToolTip.setVisibility(View.GONE);
+                    binding. notificationBtn.setVisibility(View.VISIBLE);
                     binding.maintext.setVisibility(View.VISIBLE);
                     binding.maintext.setText("Leads");
                     break;
@@ -94,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
                     binding.txtHii.setVisibility(View.GONE);
                     binding.txtName.setVisibility(View.GONE);
                     binding.icQuestion.setVisibility(View.GONE);
+                    binding. notificationBtn.setVisibility(View.VISIBLE);
+                    binding.icToolTip.setVisibility(View.GONE);
                     binding.maintext.setVisibility(View.VISIBLE);
                     binding.maintext.setText("Referral");
                     break;
@@ -103,18 +111,17 @@ public class MainActivity extends AppCompatActivity {
                     binding.txtName.setVisibility(View.GONE);
                     binding.icQuestion.setVisibility(View.GONE);
                     binding.maintext.setVisibility(View.VISIBLE);
+                    binding.icToolTip.setVisibility(View.VISIBLE);
+                    binding. notificationBtn.setVisibility(View.GONE);
                     binding.maintext.setText("My Team");
                     break;
             }
             return true;
         });
 
-//        binding.cardView7.setOnClickListener(v -> {
-//            Intent intent = new Intent(MainActivity.this, CreditActivity.class);
-//            startActivity(intent);
-//
-//        });
-
+        binding.icToolTip.setOnClickListener(v -> {
+           startActivity(new Intent(MainActivity.this, TeamDashboardActivity.class));
+        });
     }
 
     @Override
