@@ -135,19 +135,18 @@ public class ProfileActivity extends AppCompatActivity {
 
                 }
                 binding.Linear.setVisibility(View.GONE);
-                binding.loading.setVisibility(View.VISIBLE);
+                binding.loadingCard.setVisibility(View.VISIBLE);
                 updateCall.enqueue(new Callback<SignUpResponse>() {
                     @Override
                     public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
                         if (response.isSuccessful()) {
                             binding.Linear.setVisibility(View.VISIBLE);
-                            binding.loading.setVisibility(View.GONE);
-                            startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+                            binding.loadingCard.setVisibility(View.GONE);
                             finish();
                         } else {
                             Log.d(TAG, "onResponseElse" + response.message());
                             binding.Linear.setVisibility(View.VISIBLE);
-                            binding.loading.setVisibility(View.GONE);
+                            binding.loadingCard.setVisibility(View.GONE);
                             Toast.makeText(ProfileActivity.this, "try again", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -156,7 +155,7 @@ public class ProfileActivity extends AppCompatActivity {
                     public void onFailure(Call<SignUpResponse> call, Throwable t) {
                         Log.d(TAG, "Failure" + t.getMessage());
                         binding.Linear.setVisibility(View.VISIBLE);
-                        binding.loading.setVisibility(View.GONE);
+                        binding.loadingCard.setVisibility(View.GONE);
                         Toast.makeText(ProfileActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -197,17 +196,17 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void getApi() {
         binding.Linear.setVisibility(View.GONE);
-        binding.loading.setVisibility(View.VISIBLE);
+        binding.loadingCard.setVisibility(View.VISIBLE);
         Call<SignUpResponse> getAllData = apiInterface.getAllData(Id);
         getAllData.enqueue(new Callback<SignUpResponse>() {
             @Override
             public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
                 if (response.isSuccessful()) {
                     binding.Linear.setVisibility(View.VISIBLE);
-                    binding.loading.setVisibility(View.GONE);
+                    binding.loadingCard.setVisibility(View.GONE);
                     SignUpResponse singleUser = response.body();
                     binding.txtName.setText(singleUser.getUsername());
-                    Glide.with(ProfileActivity.this).load(singleUser.getProfileimg()).into(binding.userProfile);
+                    Glide.with(ProfileActivity.this).load(singleUser.getProfileimg()).placeholder(R.drawable.profile).into(binding.userProfile);
                     binding.txtUserName.setText(singleUser.getFullname());
                     binding.txtDOB.setText(singleUser.getDateofbirth());
                     binding.txtEmail.setText(singleUser.getEmail());
@@ -215,7 +214,7 @@ public class ProfileActivity extends AppCompatActivity {
                     binding.txtPin.setText(singleUser.getPincode());
                 } else {
                     binding.Linear.setVisibility(View.VISIBLE);
-                    binding.loading.setVisibility(View.GONE);
+                    binding.loadingCard.setVisibility(View.GONE);
                     Log.d("OnResponseElse", response.message());
                     Toast.makeText(ProfileActivity.this, "try again", Toast.LENGTH_SHORT).show();
                 }
@@ -225,7 +224,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onFailure(Call<SignUpResponse> call, Throwable t) {
                 Log.d("OnFailure", t.getMessage());
                 binding.Linear.setVisibility(View.VISIBLE);
-                binding.loading.setVisibility(View.GONE);
+                binding.loadingCard.setVisibility(View.GONE);
                 Toast.makeText(ProfileActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
