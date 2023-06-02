@@ -92,6 +92,11 @@ public class ProductActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     CreditCardResponse res = response.body();
                     Glide.with(ProductActivity.this).load(res.getBanklogo()).into(binding.imageView);
+                    binding.cardName.setText(res.getCardname());
+                    binding.txtCardDes.setText(res.getDiscription());
+                    binding.txtEarning.setText(res.getTotalEarn());
+                    binding.txtLeads.setText(res.getTotalLead());
+                    binding.txtSales.setText(res.getToatlSale());
 
                 } else {
                     Toast.makeText(ProductActivity.this, "try again", Toast.LENGTH_SHORT).show();
