@@ -13,6 +13,20 @@ public class CreditCardResponse {
     @SerializedName("cardname")
     @Expose
     private String cardname;
+
+    @SerializedName("dematname")
+    @Expose
+    private String dematname;
+
+    @SerializedName("bankname")
+    @Expose
+    private String bankname;
+
+    @SerializedName("psname")
+    @Expose
+    private String psname;
+
+
     @SerializedName("discription")
     @Expose
     private String discription;
@@ -61,6 +75,30 @@ public class CreditCardResponse {
     @SerializedName("user")
     @Expose
     private User user;
+
+    public String getPsname() {
+        return psname;
+    }
+
+    public void setPsname(String psname) {
+        this.psname = psname;
+    }
+
+    public String getDematname() {
+        return dematname;
+    }
+
+    public String getBankname() {
+        return bankname;
+    }
+
+    public void setBankname(String bankname) {
+        this.bankname = bankname;
+    }
+
+    public void setDematname(String dematname) {
+        this.dematname = dematname;
+    }
 
     public Integer getId() {
         return id;

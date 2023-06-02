@@ -201,13 +201,13 @@
                     app:layout_constraintTop_toBottomOf="@+id/first_Linear" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView7"
+                    android:id="@+id/creditCard"
                     android:layout_width="150dp"
                     android:layout_height="88dp"
                     android:layout_marginTop="20dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/cardView8"
+                    app:layout_constraintEnd_toStartOf="@+id/DemetCard"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView3">
 
@@ -271,14 +271,14 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView8"
+                    android:id="@+id/DemetCard"
                     android:layout_width="150dp"
                     android:layout_height="88dp"
                     android:layout_marginTop="20dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cardView7"
+                    app:layout_constraintStart_toEndOf="@+id/creditCard"
                     app:layout_constraintTop_toBottomOf="@+id/textView9">
 
                     <LinearLayout
@@ -341,16 +341,16 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView10"
+                    android:id="@+id/bankCArd"
                     android:layout_width="150dp"
                     android:layout_height="88dp"
                     android:layout_gravity="fill"
                     android:layout_marginTop="15dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/cardView12"
+                    app:layout_constraintEnd_toStartOf="@+id/lineCard"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView7">
+                    app:layout_constraintTop_toBottomOf="@+id/creditCard">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -412,7 +412,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView12"
+                    android:id="@+id/lineCard"
                     android:layout_width="150dp"
                     android:layout_height="88dp"
                     android:layout_gravity="fill"
@@ -420,8 +420,8 @@
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/cardView10"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView8">
+                    app:layout_constraintStart_toEndOf="@+id/bankCArd"
+                    app:layout_constraintTop_toBottomOf="@+id/DemetCard">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -483,16 +483,16 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView13"
+                    android:id="@+id/loanCard"
                     android:layout_width="150dp"
                     android:layout_height="88dp"
                     android:layout_gravity="fill"
                     android:layout_marginTop="15dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/cv6"
+                    app:layout_constraintEnd_toStartOf="@+id/itrCard"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView10">
+                    app:layout_constraintTop_toBottomOf="@+id/bankCArd">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -554,7 +554,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cv6"
+                    android:id="@+id/itrCard"
                     android:layout_width="150dp"
                     android:layout_height="88dp"
                     android:layout_gravity="fill"
@@ -563,8 +563,8 @@
                     app:cardElevation="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/cardView13"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView12">
+                    app:layout_constraintStart_toEndOf="@+id/loanCard"
+                    app:layout_constraintTop_toBottomOf="@+id/lineCard">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -633,7 +633,7 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginEnd="20dp"
                     android:background="@drawable/bg_button"
-                    app:layout_constraintTop_toBottomOf="@+id/cv6">
+                    app:layout_constraintTop_toBottomOf="@+id/itrCard">
 
                     <TextView
                         android:id="@+id/tvOff"

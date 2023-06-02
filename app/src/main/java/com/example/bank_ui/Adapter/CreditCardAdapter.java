@@ -22,10 +22,12 @@ import java.util.List;
 public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.MyViewHolder> {
     Context context;
     List<CreditCardResponse> singleUnit;
+    String from;
 
-    public CreditCardAdapter(Context context, List<CreditCardResponse> singleUnit) {
+    public CreditCardAdapter(Context context, List<CreditCardResponse> singleUnit, String from) {
         this.context = context;
         this.singleUnit = singleUnit;
+        this.from = from;
     }
 
     @NonNull
@@ -38,11 +40,19 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull CreditCardAdapter.MyViewHolder holder, int position) {
-
         CreditCardResponse response = singleUnit.get(position);
 
+        if (from.equals("CC")) {
+            holder.txtBankName.setText(response.getCardname());
+        }else if (from.equals("DA")){
+            holder.txtBankName.setText(response.getDematname());
+        } else if (from.equals("BA")) {
+            holder.txtBankName.setText(response.getBankname());
+        } else if (from.equals("PL")) {
+            holder.txtBankName.setText(response.getPsname());
+        }
+
         Glide.with(context).load(response.getBanklogo()).into(holder.imgLogo);
-        holder.txtBankName.setText(response.getCardname());
         holder.txtDisc.setText(response.getDiscription());
         holder.txtEarnUpTo.setText(response.getEarnupto());
         holder.btnQuickView.setOnClickListener(v -> {

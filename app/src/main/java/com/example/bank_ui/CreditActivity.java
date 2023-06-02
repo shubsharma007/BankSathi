@@ -15,6 +15,7 @@ import com.example.bank_ui.Retrofit.RetrofitServices;
 import com.example.bank_ui.databinding.ActivityCreditBinding;
 
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,6 +24,8 @@ import retrofit2.Response;
 public class CreditActivity extends AppCompatActivity {
     ActivityCreditBinding binding;
     ApiInterface apiInterface;
+    String from;
+    Call<List<CreditCardResponse>> call;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +33,33 @@ public class CreditActivity extends AppCompatActivity {
         binding = ActivityCreditBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         apiInterface = RetrofitServices.getRetrofit().create(ApiInterface.class);
-        Call<List<CreditCardResponse>> listCall = apiInterface.getCreditCard();
-        listCall.enqueue(new Callback<List<CreditCardResponse>>() {
+
+
+        from = getIntent().getStringExtra("from");
+
+        if (Objects.equals(from, "CC")) {
+            call = apiInterface.getCreditCard();
+        } else if (Objects.equals(from, "DA")) {
+            call = apiInterface.getDemetAccount();
+        } else if (Objects.equals(from, "BA")) {
+            call = apiInterface.getBankAccount();
+        } else if (Objects.equals(from, "CL")) {
+
+        } else if (Objects.equals(from, "PL")) {
+            call = apiInterface.getPersonalLoan();
+        }
+        //ITR
+        else {
+
+
+        }
+        call.enqueue(new Callback<List<CreditCardResponse>>() {
             @Override
             public void onResponse(Call<List<CreditCardResponse>> call, Response<List<CreditCardResponse>> response) {
                 if (response.isSuccessful()) {
                     List<CreditCardResponse> res = response.body();
                     binding.rCreditCard.setLayoutManager(new LinearLayoutManager(CreditActivity.this));
-                    binding.rCreditCard.setAdapter(new CreditCardAdapter(CreditActivity.this,res));
-
+                    binding.rCreditCard.setAdapter(new CreditCardAdapter(CreditActivity.this, res, from));
 
 
                 } else {

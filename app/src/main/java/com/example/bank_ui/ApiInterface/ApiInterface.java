@@ -61,4 +61,16 @@ public interface ApiInterface {
     @GET("creditcard/{id}")
     Call<CreditCardResponse> getSingleCard(@Path("id") int id);
 
+    @GET("demataccount/")
+    Call<List<CreditCardResponse>> getDemetAccount();
+
+    @GET("bankaccount/")
+    Call<List<CreditCardResponse>> getBankAccount();
+
+    @GET(" personalloan/")
+    Call<List<CreditCardResponse>> getPersonalLoan();
+
+//    @GET(" personalloan/")
+//    Call<List<CreditCardResponse>> getPersonalLoan();
+
 }

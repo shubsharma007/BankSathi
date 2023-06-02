@@ -18,19 +18,50 @@ import com.example.bank_ui.databinding.FragmentHomeBinding;
 public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
 
-    
+//    String CC, DA, BA, CL, PL, ITR;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 //        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
-        binding.cardView7.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), CreditActivity.class);
-            startActivity(intent);
+        cardClickListener();
 
-        });
         return binding.getRoot();
 
+    }
+
+    private void cardClickListener() {
+        binding.creditCard.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), CreditActivity.class);
+            intent.putExtra("from", "CC");
+            startActivity(intent);
+        });
+        binding.DemetCard.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), CreditActivity.class);
+            intent.putExtra("from", "DA");
+            startActivity(intent);
+        });
+        binding.bankCArd.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), CreditActivity.class);
+            intent.putExtra("from", "BA");
+            startActivity(intent);
+        });
+        binding.lineCard.setOnClickListener(v -> {
+//            Intent intent = new Intent(getActivity(), CreditActivity.class);
+//            intent.putExtra("from", "CL");
+//            startActivity(intent);
+        });
+        binding.loanCard.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), CreditActivity.class);
+            intent.putExtra("from", "PL");
+            startActivity(intent);
+        });
+        binding.itrCard.setOnClickListener(v -> {
+//            Intent intent = new Intent(getActivity(), CreditActivity.class);
+//            intent.putExtra("from", "ITR");
+//            startActivity(intent);
+        });
     }
 }
