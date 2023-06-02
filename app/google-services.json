@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "410883616986",
-    "project_id": "banksathi-91981",
-    "storage_bucket": "banksathi-91981.appspot.com"
+    "project_number": "484950976444",
+    "project_id": "finenza-world",
+    "storage_bucket": "finenza-world.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:410883616986:android:1c13083da99bdae58b75e3",
+        "mobilesdk_app_id": "1:484950976444:android:c5ee29a7986fe2e18cadb9",
         "android_client_info": {
           "package_name": "com.example.bank_ui"
         }
       },
       "oauth_client": [
         {
-          "client_id": "410883616986-2e21i1ri3lu35hv638hu5212tijgq2oo.apps.googleusercontent.com",
+          "client_id": "484950976444-kbccsdkj50kk1im8fklfmhqsdp4u0ged.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB3mQK4LcICdrXlRiJXmszf3cclz_h4ZIY"
+          "current_key": "AIzaSyAFu2VzbI5nsDSXFOfnWjU0JswasLs3xMA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "410883616986-2e21i1ri3lu35hv638hu5212tijgq2oo.apps.googleusercontent.com",
+              "client_id": "484950976444-kbccsdkj50kk1im8fklfmhqsdp4u0ged.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
