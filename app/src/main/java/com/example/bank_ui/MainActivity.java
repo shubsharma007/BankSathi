@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                     // Get new FCM registration token
                     String token = task.getResult();
                     // Log and toast
-                    Log.d(TAG, token);
+                    Log.d("ToKeN", token);
 //                    Toast.makeText(MainActivity.this, "your token is " + token, Toast.LENGTH_SHORT).show();
                 });
     }
