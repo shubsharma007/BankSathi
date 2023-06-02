@@ -4,6 +4,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class LoginResponse {
+
+
     @SerializedName("response")
     @Expose
     private String response;
@@ -34,6 +36,9 @@ public class LoginResponse {
     @SerializedName("dateofbirth")
     @Expose
     private String dateofbirth;
+    @SerializedName("devicetoken")
+    @Expose
+    private Object devicetoken;
     @SerializedName("status")
     @Expose
     private String status;
@@ -116,6 +121,14 @@ public class LoginResponse {
 
     public void setDateofbirth(String dateofbirth) {
         this.dateofbirth = dateofbirth;
+    }
+
+    public Object getDevicetoken() {
+        return devicetoken;
+    }
+
+    public void setDevicetoken(Object devicetoken) {
+        this.devicetoken = devicetoken;
     }
 
     public String getStatus() {

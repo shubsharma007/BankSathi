@@ -6,6 +6,8 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class SignUpResponse {
+
+
     @SerializedName("msg")
     @Expose
     private String msg;
@@ -36,6 +38,9 @@ public class SignUpResponse {
     @SerializedName("profileimg")
     @Expose
     private String profileimg;
+    @SerializedName("devicetoken")
+    @Expose
+    private String devicetoken;
 
     public String getMsg() {
         return msg;
@@ -116,4 +121,15 @@ public class SignUpResponse {
     public void setProfileimg(String profileimg) {
         this.profileimg = profileimg;
     }
+
+    public String getDevicetoken() {
+        return devicetoken;
+    }
+
+    public void setDevicetoken(String devicetoken) {
+        this.devicetoken = devicetoken;
+    }
+
+
+
 }
