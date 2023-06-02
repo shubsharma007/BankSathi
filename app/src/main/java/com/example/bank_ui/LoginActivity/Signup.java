@@ -77,16 +77,14 @@ public class Signup extends AppCompatActivity {
                     phoneNumber = binding.mobileEt.getText().toString();
                     password = binding.passwordEt.getText().toString();
                     if (isNetworkAvailable()) {
-                        ProgressDialog progressDialog = new ProgressDialog(Signup.this);
-                        progressDialog.setMessage("please wait...");
-                        progressDialog.show();
+                        binding.loadingCard.setVisibility(View.VISIBLE);
 
                         Call<SignUpResponse> call = apiInterface.postSignUpResponse(fullName, username, phoneNumber, password, true);
                         call.enqueue(new Callback<SignUpResponse>() {
                             @Override
                             public void onResponse(@NonNull Call<SignUpResponse> call, @NonNull Response<SignUpResponse> response) {
                                 if (response.isSuccessful()) {
-                                    progressDialog.dismiss();
+                                    binding.loadingCard.setVisibility(View.GONE);
                                     Toast.makeText(Signup.this, "SignUp Successfull...", Toast.LENGTH_SHORT).show();
                                     editor.putBoolean("login", true);
                                     editor.putString("fullName", fullName);
@@ -105,7 +103,7 @@ public class Signup extends AppCompatActivity {
                                     startActivity(new Intent(Signup.this, MainActivity.class));
                                     finish();
                                 } else {
-                                    progressDialog.dismiss();
+                                    binding.loadingCard.setVisibility(View.GONE);
                                     Log.d("OnResponseElse", response.message());
                                     Toast.makeText(Signup.this, "OnResponseElse", Toast.LENGTH_SHORT).show();
 
@@ -124,7 +122,7 @@ public class Signup extends AppCompatActivity {
 
                             @Override
                             public void onFailure(Call<SignUpResponse> call, Throwable t) {
-                                progressDialog.dismiss();
+                                binding.loadingCard.setVisibility(View.GONE);
                                 Log.d("OnFailure", t.getMessage());
                                 Toast.makeText(Signup.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 

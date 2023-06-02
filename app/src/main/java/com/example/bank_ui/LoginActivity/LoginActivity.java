@@ -99,9 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                 password = binding.passwordEt.getText().toString();
 
                 if (isNetworkAvailable()) {
-                    ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
-                    progressDialog.setMessage("please wait...");
-                    progressDialog.show();
+
+                    binding.loadingCard.setVisibility(View.VISIBLE);
 
                     Call<LoginResponse> call = apiInterface.postLoginResponse(mobile, password);
                     call.enqueue(new Callback<LoginResponse>() {
@@ -132,18 +131,18 @@ public class LoginActivity extends AppCompatActivity {
                                 editor.putString("address", singliUnit.getAddress());
 
                                 editor.apply();
-                                progressDialog.dismiss();
+                                binding.loadingCard.setVisibility(View.GONE);
                                 finish();
                                 Toast.makeText(LoginActivity.this, "Login Successful...", Toast.LENGTH_SHORT).show();
                             } else {
-                                progressDialog.dismiss();
+                                binding.loadingCard.setVisibility(View.GONE);
                                 Toast.makeText(LoginActivity.this, "Number or password incorrect...", Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<LoginResponse> call, Throwable t) {
-                            progressDialog.dismiss();
+                            binding.loadingCard.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
                         }
