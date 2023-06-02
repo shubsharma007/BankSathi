@@ -43,6 +43,10 @@ public interface ApiInterface {
                                                @Part("pincode") RequestBody pincode,
                                                @Part MultipartBody.Part profileimg);
 
+    @FormUrlEncoded
+    @PATCH("registeruser/{id}")
+    Call<SignUpResponse> updateToken(@Path("id") int id, @Field("devicetoken") String hao);
+
     @Multipart
     @PATCH("registeruser/{id}/")
     Call<SignUpResponse> updateProfileResponseWithoutImage(@Path("id") int id,

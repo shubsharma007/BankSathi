@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
         //  sharedPreferences
-        sharedPreferences = this.getSharedPreferences(String.valueOf(com.example.bank_ui.R.string.sharedPreferenceName), Context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("bank", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         mAuth = FirebaseAuth.getInstance();
@@ -107,33 +107,31 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                             if (response.isSuccessful()) {
-                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 editor.putBoolean("login", true);
                                 LoginResponse singliUnit = response.body();
-
-
-                                editor.putString("fullName", singliUnit.getFullname());
-                                editor.putString("userName", singliUnit.getUsername());
-                                editor.putString("phoneNumber", singliUnit.getPhoneNo());
-//                                editor.putString("password", password);
-                                editor.putInt("id", singliUnit.getId());
 
                                 if (singliUnit.getProfileimg() != null && !singliUnit.getProfileimg().isEmpty() && !singliUnit.getProfileimg().equals("")) {
 //                                    finalProfileImage = "https://saathi.techpanda.art/" + singliUnit.getProfileimg().substring(singliUnit.getProfileimg().lastIndexOf("profileimage") + 1);
                                     finalProfileImage = "https://saathi.techpanda.art/BankSathi/media/profileimage" + singliUnit.getProfileimg().split("ofileimage")[1];
-
                                 }
-                                Log.d("finalImage", finalProfileImage);
+
+                                editor.putString("fullName", singliUnit.getFullname());
+                                editor.putString("userName", singliUnit.getUsername());
+                                editor.putString("phoneNumber", singliUnit.getPhoneNo());
+                                editor.putInt("id", singliUnit.getId());
                                 editor.putString("profileImg", finalProfileImage);
                                 editor.putString("email", singliUnit.getEmail());
                                 editor.putString("dob", singliUnit.getDateofbirth());
                                 editor.putString("pinCode", singliUnit.getPincode());
                                 editor.putString("address", singliUnit.getAddress());
+                                editor.putString("deviceToken", singliUnit.getDevicetoken());
 
                                 editor.apply();
                                 binding.loadingCard.setVisibility(View.GONE);
-                                finish();
                                 Toast.makeText(LoginActivity.this, "Login Successful...", Toast.LENGTH_SHORT).show();
+
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
                             } else {
                                 binding.loadingCard.setVisibility(View.GONE);
                                 Toast.makeText(LoginActivity.this, "Number or password incorrect...", Toast.LENGTH_SHORT).show();
