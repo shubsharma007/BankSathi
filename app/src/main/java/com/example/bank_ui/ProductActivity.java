@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -27,7 +28,7 @@ import retrofit2.Response;
 public class ProductActivity extends AppCompatActivity {
     ActivityProductBinding binding;
     int Id;
-
+    private static final String TAG = "TAGTAGTAG";
     ApiInterface apiInterface;
     Call<CreditCardResponse> call;
     String from;
@@ -61,12 +62,14 @@ public class ProductActivity extends AppCompatActivity {
         } else {
             call = apiInterface.getSingleInsurance(Id);
         }
+
+        binding.loadingCard.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<CreditCardResponse>() {
             @Override
             public void onResponse(Call<CreditCardResponse> call, Response<CreditCardResponse> response) {
                 if (response.isSuccessful()) {
                     CreditCardResponse res = response.body();
-
+                    binding.loadingCard.setVisibility(View.GONE);
                     if (from.equals("CC")) {
                         binding.cardName.setText(res.getCardname());
                     } else if (from.equals("DA")) {
@@ -88,12 +91,16 @@ public class ProductActivity extends AppCompatActivity {
                     binding.txtSales.setText(res.getToatlSale());
 
                 } else {
+                    binding.loadingCard.setVisibility(View.GONE);
+                    Log.d(TAG, response.message());
                     Toast.makeText(ProductActivity.this, "try again", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<CreditCardResponse> call, Throwable t) {
+                binding.loadingCard.setVisibility(View.GONE);
+                Log.d(TAG, t.getMessage());
                 Toast.makeText(ProductActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
