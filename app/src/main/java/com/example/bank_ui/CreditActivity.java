@@ -43,14 +43,14 @@ public class CreditActivity extends AppCompatActivity {
             call = apiInterface.getDemetAccount();
         } else if (Objects.equals(from, "BA")) {
             call = apiInterface.getBankAccount();
-        } else if (Objects.equals(from, "CL")) {
-
+        } else if (Objects.equals(from, "GL")) {
+            call = apiInterface.getGoldLoan();
         } else if (Objects.equals(from, "PL")) {
             call = apiInterface.getPersonalLoan();
         }
-        //ITR
+        //Insurance(IN)
         else {
-
+            call = apiInterface.getInsurance();
 
         }
         call.enqueue(new Callback<List<CreditCardResponse>>() {

@@ -49,9 +49,9 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
         binding.lineCard.setOnClickListener(v -> {
-//            Intent intent = new Intent(getActivity(), CreditActivity.class);
-//            intent.putExtra("from", "CL");
-//            startActivity(intent);
+            Intent intent = new Intent(getActivity(), CreditActivity.class);
+            intent.putExtra("from", "GL");
+            startActivity(intent);
         });
         binding.loanCard.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), CreditActivity.class);
@@ -59,9 +59,9 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
         binding.itrCard.setOnClickListener(v -> {
-//            Intent intent = new Intent(getActivity(), CreditActivity.class);
-//            intent.putExtra("from", "ITR");
-//            startActivity(intent);
+            Intent intent = new Intent(getActivity(), CreditActivity.class);
+            intent.putExtra("from", "IN");
+            startActivity(intent);
         });
     }
 }

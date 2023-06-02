@@ -67,10 +67,12 @@ public interface ApiInterface {
     @GET("bankaccount/")
     Call<List<CreditCardResponse>> getBankAccount();
 
-    @GET(" personalloan/")
+    @GET("personalloan/")
     Call<List<CreditCardResponse>> getPersonalLoan();
 
-//    @GET(" personalloan/")
-//    Call<List<CreditCardResponse>> getPersonalLoan();
+    @GET("goldloan/")
+    Call<List<CreditCardResponse>> getGoldLoan();
 
+    @GET("insurance/")
+    Call<List<CreditCardResponse>> getInsurance();
 }

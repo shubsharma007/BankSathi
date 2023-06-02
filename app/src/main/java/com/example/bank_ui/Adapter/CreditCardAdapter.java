@@ -44,12 +44,16 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
 
         if (from.equals("CC")) {
             holder.txtBankName.setText(response.getCardname());
-        }else if (from.equals("DA")){
+        } else if (from.equals("DA")) {
             holder.txtBankName.setText(response.getDematname());
         } else if (from.equals("BA")) {
             holder.txtBankName.setText(response.getBankname());
         } else if (from.equals("PL")) {
             holder.txtBankName.setText(response.getPsname());
+        } else if (from.equals("GL")) {
+            holder.txtBankName.setText(response.getInvname());
+        } else {
+            holder.txtBankName.setText(response.getClname());
         }
 
         Glide.with(context).load(response.getBanklogo()).into(holder.imgLogo);

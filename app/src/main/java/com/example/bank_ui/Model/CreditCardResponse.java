@@ -26,6 +26,13 @@ public class CreditCardResponse {
     @Expose
     private String psname;
 
+    @SerializedName("invname")
+    @Expose
+    private String invname;
+
+    @SerializedName("clname")
+    @Expose
+    private String clname;
 
     @SerializedName("discription")
     @Expose
@@ -75,6 +82,23 @@ public class CreditCardResponse {
     @SerializedName("user")
     @Expose
     private User user;
+
+
+    public String getInvname() {
+        return invname;
+    }
+
+    public void setInvname(String invname) {
+        this.invname = invname;
+    }
+
+    public String getClname() {
+        return clname;
+    }
+
+    public void setClname(String clname) {
+        this.clname = clname;
+    }
 
     public String getPsname() {
         return psname;
