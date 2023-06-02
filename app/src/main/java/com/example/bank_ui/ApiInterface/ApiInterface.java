@@ -64,15 +64,30 @@ public interface ApiInterface {
     @GET("demataccount/")
     Call<List<CreditCardResponse>> getDemetAccount();
 
+    @GET("demataccount/{id}")
+    Call<CreditCardResponse> getSingleDemetAccount(@Path("id") int id);
+
     @GET("bankaccount/")
     Call<List<CreditCardResponse>> getBankAccount();
+
+    @GET("bankaccount/{id}")
+    Call<CreditCardResponse> getSingleBankAccount(@Path("id") int id);
 
     @GET("personalloan/")
     Call<List<CreditCardResponse>> getPersonalLoan();
 
+    @GET("personalloan/{id}")
+    Call<CreditCardResponse> getSinglePersonalLoan(@Path("id") int id);
+
     @GET("goldloan/")
     Call<List<CreditCardResponse>> getGoldLoan();
 
+    @GET("goldloan/{id}")
+    Call<CreditCardResponse> getSingleGoldLoan(@Path("id") int id);
+
     @GET("insurance/")
     Call<List<CreditCardResponse>> getInsurance();
+
+    @GET("insurance/{id}")
+    Call<CreditCardResponse> getSingleInsurance(@Path("id") int id);
 }

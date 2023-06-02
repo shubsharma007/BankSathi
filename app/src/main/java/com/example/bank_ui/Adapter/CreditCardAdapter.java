@@ -60,11 +60,42 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
         holder.txtDisc.setText(response.getDiscription());
         holder.txtEarnUpTo.setText(response.getEarnupto());
         holder.btnQuickView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, ProductActivity.class);
-
-            intent.putExtra("Id", response.getId());
-
-            context.startActivity(intent);
+            if (from.equals("CC")) {
+                Intent intent = new Intent(context, ProductActivity.class);
+                intent.putExtra("Id", response.getId());
+                intent.putExtra("from", "CC");
+                context.startActivity(intent);
+            } else if (from.equals("DA")) {
+                Intent intent = new Intent(context, ProductActivity.class);
+                intent.putExtra("Id", response.getId());
+                intent.putExtra("from", "DA");
+                context.startActivity(intent);
+            } else if (from.equals("BA")) {
+                Intent intent = new Intent(context, ProductActivity.class);
+                intent.putExtra("Id", response.getId());
+                intent.putExtra("from", "BA");
+                context.startActivity(intent);
+            } else if (from.equals("GL")) {
+                Intent intent = new Intent(context, ProductActivity.class);
+                intent.putExtra("Id", response.getId());
+                intent.putExtra("from", "GL");
+                context.startActivity(intent);
+            } else if (from.equals("PL")) {
+                Intent intent = new Intent(context, ProductActivity.class);
+                intent.putExtra("Id", response.getId());
+                intent.putExtra("from", "PL");
+                context.startActivity(intent);
+            } else if (from.equals("IN")) {
+                Intent intent = new Intent(context, ProductActivity.class);
+                intent.putExtra("Id", response.getId());
+                intent.putExtra("from", "IN");
+                context.startActivity(intent);
+            }
+//            Intent intent = new Intent(context, ProductActivity.class);
+//
+//            intent.putExtra("Id", response.getId());
+//
+//            context.startActivity(intent);
         });
 //        holder.shareBtn.setOnClickListener(v -> {
 //
