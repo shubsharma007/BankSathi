@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     String name;
     String profileImg;
 
-    private static final String TAG = "TAGTAGTAG";
+    private static final String TAG = "MainTag";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
