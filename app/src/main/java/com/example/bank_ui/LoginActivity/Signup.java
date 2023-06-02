@@ -40,7 +40,7 @@ public class Signup extends AppCompatActivity {
         binding = ActivitySignupBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //  sharedPreferences
-        sharedPreferences = this.getSharedPreferences(String.valueOf(com.example.bank_ui.R.string.sharedPreferenceName), Context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("bank", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
 
@@ -87,10 +87,11 @@ public class Signup extends AppCompatActivity {
                                     binding.loadingCard.setVisibility(View.GONE);
                                     Toast.makeText(Signup.this, "SignUp Successfull...", Toast.LENGTH_SHORT).show();
                                     editor.putBoolean("login", true);
+
+                                    editor.putString("deviceToken", "");
                                     editor.putString("fullName", fullName);
                                     editor.putString("userName", username);
                                     editor.putString("phoneNumber", phoneNumber);
-                                    editor.putString("password", password);
                                     editor.putInt("id", response.body().getId());
                                     editor.putString("profileImg", "");
                                     editor.putString("email", "");

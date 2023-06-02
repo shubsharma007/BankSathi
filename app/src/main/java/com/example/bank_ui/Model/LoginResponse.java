@@ -38,7 +38,7 @@ public class LoginResponse {
     private String dateofbirth;
     @SerializedName("devicetoken")
     @Expose
-    private Object devicetoken;
+    private String devicetoken;
     @SerializedName("status")
     @Expose
     private String status;
@@ -123,11 +123,11 @@ public class LoginResponse {
         this.dateofbirth = dateofbirth;
     }
 
-    public Object getDevicetoken() {
+    public String getDevicetoken() {
         return devicetoken;
     }
 
-    public void setDevicetoken(Object devicetoken) {
+    public void setDevicetoken(String devicetoken) {
         this.devicetoken = devicetoken;
     }
 

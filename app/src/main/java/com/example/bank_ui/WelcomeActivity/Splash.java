@@ -28,7 +28,7 @@ public class Splash extends AppCompatActivity {
          
 
         //  sharedPreferences
-        sharedPreferences = this.getSharedPreferences(String.valueOf(R.string.sharedPreferenceName), Context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("bank", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         binding.imageView3.animate().scaleXBy(0.3f).setDuration(2000);

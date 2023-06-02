@@ -159,7 +159,7 @@ public class ProfileActivity extends AppCompatActivity {
                         Toast.makeText(ProfileActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-            }else {
+            } else {
                 Toast.makeText(this, "No Network Connection", Toast.LENGTH_SHORT).show();
 
             }
@@ -174,7 +174,8 @@ public class ProfileActivity extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     FirebaseAuth.getInstance().signOut();
-                    editor.putBoolean("login", false);
+                    editor.clear();
+                    editor.putBoolean("onBoarding", true);
                     editor.apply();
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
@@ -232,18 +233,9 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void getSaved() {
-        sharedPreferences = this.getSharedPreferences(String.valueOf(R.string.sharedPreferenceName), Context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("bank", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-//        editor.putString("fullName", fullName);
-//        editor.putString("userName", username);
-//        editor.putString("phoneNumber", phoneNumber);
-//        editor.putString("password", password);
-//        editor.putInt("id", response.body().getId());
-//        editor.putString("profileImg", "");
-//        editor.putString("email", "");
-//        editor.putString("dob", "");
-//        editor.putString("pinCode", "");
-//        editor.putString("address","");
+
         Id = sharedPreferences.getInt("id", 0);
 
 //        name = sharedPreferences.getString("fullName", "");
