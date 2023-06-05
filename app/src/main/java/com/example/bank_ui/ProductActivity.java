@@ -32,6 +32,7 @@ public class ProductActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     Call<CreditCardResponse> call;
     String from;
+    MyStatsFragment bydefault;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +40,25 @@ public class ProductActivity extends AppCompatActivity {
         binding = ActivityProductBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         apiInterface = RetrofitServices.getRetrofit().create(ApiInterface.class);
+        Id = getIntent().getIntExtra("Id", 0);
+        from = getIntent().getStringExtra("from");
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.secondHome, new MyStatsFragment()).commit();
+
+
+        bydefault = new MyStatsFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("from", from);
+        bundle.putInt("Id", Id);
+        bydefault.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.secondHome, bydefault).commit();
+
+
         //fragment change
         changeFragment();
         clickListener();
-        Id = getIntent().getIntExtra("Id", 0);
+
         Log.d("ID aarahi hai", String.valueOf(Id));
-        from = getIntent().getStringExtra("from");
+
         Log.d("Frommekyahai", from);
         if (Objects.equals(from, "CC")) {
             call = apiInterface.getSingleCard(Id);
