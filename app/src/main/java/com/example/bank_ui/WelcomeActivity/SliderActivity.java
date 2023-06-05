@@ -48,19 +48,19 @@ public class SliderActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 // calling setDotIndicator and passing position jaha pe active dot ko set krna he
                 setDotIndicator(position);
-                if (position > 0) {
-                    binding.backBtn.setVisibility(View.VISIBLE);
-                } else {
-                    binding.backBtn.setVisibility(View.INVISIBLE);
-                }
-                if (position == 2) {
-                    binding.nextBtn.setText("Finish");
-//                binding.nextBtn.setAnimation(animation);
-                    binding.skipBtn.setVisibility(View.GONE);
-                } else {
-                    binding.nextBtn.setText("Next");
-                    binding.skipBtn.setVisibility(View.VISIBLE);
-                }
+//                if (position > 0) {
+//                    binding.backBtn.setVisibility(View.VISIBLE);
+//                } else {
+//                    binding.backBtn.setVisibility(View.INVISIBLE);
+//                }
+//                if (position == 2) {
+//                    binding.nextBtn.setText("Finish");
+////                binding.nextBtn.setAnimation(animation);
+//                    binding.skipBtn.setVisibility(View.GONE);
+//                } else {
+//                    binding.nextBtn.setText("Next");
+//                    binding.skipBtn.setVisibility(View.VISIBLE);
+//                }
             }
 
             @Override
@@ -77,14 +77,14 @@ public class SliderActivity extends AppCompatActivity {
         binding.viewPager.setAdapter(adapter);
         binding.viewPager.addOnPageChangeListener(viewPagerListener);
 
-        binding.backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (getItem(0) > 0) {
-                    binding.viewPager.setCurrentItem(getItem(-1), true);
-                }
-            }
-        });
+//        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (getItem(0) > 0) {
+//                    binding.viewPager.setCurrentItem(getItem(-1), true);
+//                }
+//            }
+//        });
         binding.nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
