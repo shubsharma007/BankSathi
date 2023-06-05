@@ -78,11 +78,10 @@
 
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/noData"
+            android:id="@+id/noDataFound"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp"
-            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -96,35 +95,6 @@
                 android:layout_marginBottom="13dp"
                 android:src="@drawable/lady"
                 app:layout_constraintTop_toBottomOf="@+id/btnDetail" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="13dp"
-                android:layout_marginBottom="13dp"
-                android:text="No Customer Found"
-                android:textSize="14dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="13dp"
-                android:gravity="center"
-                android:text="Add  custmore and earn extra income .\ntrack the details anytime."
-                android:textSize="12dp" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnAddCustomer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#FFAAD3"
-                android:text="Add New Customer"
-                android:textStyle="bold" />
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -160,24 +130,45 @@
 
 
             </LinearLayout>
-
-
         </androidx.cardview.widget.CardView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvAddCustomer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="@id/noData"
+            app:layout_constraintBottom_toBottomOf="@id/noDataFound"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/noData"
+            app:layout_constraintTop_toTopOf="@id/noDataFound"
             tools:listitem="@layout/rv_customers" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/loadingCard"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loading"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/lottie_loading" />
+
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addNewCustomer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"

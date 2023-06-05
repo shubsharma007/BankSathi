@@ -43,7 +43,7 @@ public class ProductActivity extends AppCompatActivity {
         Id = getIntent().getIntExtra("Id", 0);
         from = getIntent().getStringExtra("from");
 
-
+        binding.dataFound.setVisibility(View.GONE);
 
         bydefault = new MyStatsFragment();
         Bundle bundle = new Bundle();
@@ -82,6 +82,8 @@ public class ProductActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     CreditCardResponse res = response.body();
                     binding.loadingCard.setVisibility(View.GONE);
+                    binding.noDataFound.setVisibility(View.GONE);
+                    binding.dataFound.setVisibility(View.VISIBLE);
                     if (from.equals("CC")) {
                         binding.cardName.setText(res.getCardname());
                     } else if (from.equals("DA")) {
@@ -103,6 +105,8 @@ public class ProductActivity extends AppCompatActivity {
                     binding.txtSales.setText(res.getToatlSale());
 
                 } else {
+                    binding.noDataFound.setVisibility(View.VISIBLE);
+                    binding.dataFound.setVisibility(View.GONE);
                     binding.loadingCard.setVisibility(View.GONE);
                     Log.d(TAG, response.message());
                     Toast.makeText(ProductActivity.this, "try again", Toast.LENGTH_SHORT).show();
@@ -112,6 +116,8 @@ public class ProductActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<CreditCardResponse> call, Throwable t) {
                 binding.loadingCard.setVisibility(View.GONE);
+                binding.noDataFound.setVisibility(View.VISIBLE);
+                binding.dataFound.setVisibility(View.GONE);
                 Log.d(TAG, t.getMessage());
                 Toast.makeText(ProductActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
