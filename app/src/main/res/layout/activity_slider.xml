@@ -11,17 +11,18 @@
         android:id="@+id/skipBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/lavender"
+        android:background="@drawable/bg_round_corner_lavender"
         android:drawableRight="@drawable/ic_skip"
-        android:paddingEnd="8dp"
-        android:text="skip"
+        android:paddingHorizontal="45dp"
+
+        android:text="Skip"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/lavender"
         android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
@@ -33,20 +34,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/bg_round_corner_lavender"
-        android:text="back"
-        android:textAllCaps="false"
-        android:textColor="@color/lavender"
-        android:textSize="13sp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+<!--    <androidx.appcompat.widget.AppCompatButton-->
+<!--        android:id="@+id/backBtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="15dp"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:background="@drawable/bg_round_corner_lavender"-->
+<!--        android:text="back"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textColor="@color/lavender"-->
+<!--        android:textSize="13sp"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/nextBtn"
@@ -54,10 +55,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/bg_round_corner_lavender"
-        android:text="next"
+        android:background="@drawable/bg_blue_btn"
+        android:text="Next"
+        android:textStyle="bold"
         android:textAllCaps="false"
-        android:textColor="@color/lavender"
+        android:paddingHorizontal="55dp"
+        android:textColor="@color/white"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
