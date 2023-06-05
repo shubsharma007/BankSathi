@@ -9,7 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bank_ui.Model.GetCustomers;
 import com.example.bank_ui.R;
+
+import java.util.List;
 
 import javax.xml.xpath.XPathFunctionResolver;
 
@@ -18,9 +21,11 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.CustomerViewHolder> {
 
     Context context;
+    List<GetCustomers> customersList;
 
-    public CustomerAdapter(Context context) {
+    public CustomerAdapter(Context context, List<GetCustomers> customersList) {
         this.context = context;
+        this.customersList = customersList;
     }
 
     @NonNull
@@ -33,13 +38,15 @@ public class CustomerAdapter extends RecyclerView.Adapter<CustomerAdapter.Custom
 
     @Override
     public void onBindViewHolder(@NonNull CustomerAdapter.CustomerViewHolder holder, int position) {
-        holder.name.setText("Name - ");
-        holder.phone.setText("Contact - ");
+        GetCustomers singleUnit = customersList.get(position);
+
+        holder.name.setText("Name - " + singleUnit.getFullname());
+        holder.phone.setText("Contact - " + singleUnit.getContactno());
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        return customersList.size();
     }
 
     public static class CustomerViewHolder extends RecyclerView.ViewHolder {

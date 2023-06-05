@@ -2,6 +2,7 @@ package com.example.bank_ui.ApiInterface;
 
 import com.example.bank_ui.Model.AddCustomerResponse;
 import com.example.bank_ui.Model.CreditCardResponse;
+import com.example.bank_ui.Model.GetCustomers;
 import com.example.bank_ui.Model.LoginResponse;
 import com.example.bank_ui.Model.SignUpResponse;
 
@@ -105,46 +106,70 @@ public interface ApiInterface {
                                               @Field("pancardno") String pancardno,
                                               @Field("cardid") String cardid,
                                               @Field("create_by") String create_by);
+
+    @GET("credit-card-customer/")
+    Call<List<GetCustomers>> getCreditCardCustomers();
+
+    @GET("demat-account-customer/")
+    Call<List<GetCustomers>> getDematAccountCustomers();
+
+    @GET("buisness-loan-customer/")
+    Call<List<GetCustomers>> getBusinessCustomers();
+
+    @GET("gold-loan-customer/")
+    Call<List<GetCustomers>> getGoldLoanCustomers();
+
+    @GET("car-loan-customer/")
+    Call<List<GetCustomers>> getPersonalLoanCustomers();
+
+    @GET("insuranse-customer/")
+    Call<List<GetCustomers>> getInsuranceCustomers();
+
+
     @FormUrlEncoded
     @POST("demat-account-customer/")
     Call<AddCustomerResponse> postAddCustomerDemat(@Field("fullname") String fullname,
-                                              @Field("contactno") String contactno,
-                                              @Field("emailid") String emailid,
-                                              @Field("pancardno") String pancardno,
-                                              @Field("cardid") String cardid,
-                                              @Field("create_by") String create_by);
+                                                   @Field("contactno") String contactno,
+                                                   @Field("emailid") String emailid,
+                                                   @Field("pancardno") String pancardno,
+                                                   @Field("cardid") String cardid,
+                                                   @Field("create_by") String create_by);
+
     @FormUrlEncoded
     @POST("gold-loan-customer/")
     Call<AddCustomerResponse> postAddCustomerGold(@Field("fullname") String fullname,
-                                              @Field("contactno") String contactno,
-                                              @Field("emailid") String emailid,
-                                              @Field("pancardno") String pancardno,
-                                              @Field("cardid") String cardid,
-                                              @Field("create_by") String create_by);
+                                                  @Field("contactno") String contactno,
+                                                  @Field("emailid") String emailid,
+                                                  @Field("pancardno") String pancardno,
+                                                  @Field("cardid") String cardid,
+                                                  @Field("create_by") String create_by);
+
     @FormUrlEncoded
     @POST("car-loan-customer/")
     Call<AddCustomerResponse> postAddCustomerCar(@Field("fullname") String fullname,
-                                              @Field("contactno") String contactno,
-                                              @Field("emailid") String emailid,
-                                              @Field("pancardno") String pancardno,
-                                              @Field("cardid") String cardid,
-                                              @Field("create_by") String create_by);
+                                                 @Field("contactno") String contactno,
+                                                 @Field("emailid") String emailid,
+                                                 @Field("pancardno") String pancardno,
+                                                 @Field("cardid") String cardid,
+                                                 @Field("create_by") String create_by);
+
     @FormUrlEncoded
     @POST("insuranse-customer/")
     Call<AddCustomerResponse> postAddCustomerInsuranse(@Field("fullname") String fullname,
-                                              @Field("contactno") String contactno,
-                                              @Field("emailid") String emailid,
-                                              @Field("pancardno") String pancardno,
-                                              @Field("cardid") String cardid,
-                                              @Field("create_by") String create_by);
+                                                       @Field("contactno") String contactno,
+                                                       @Field("emailid") String emailid,
+                                                       @Field("pancardno") String pancardno,
+                                                       @Field("cardid") String cardid,
+                                                       @Field("create_by") String create_by);
+
     @FormUrlEncoded
     @POST("buisness-loan-customer/")
     Call<AddCustomerResponse> postAddCustomerBuisness(@Field("fullname") String fullname,
-                                              @Field("contactno") String contactno,
-                                              @Field("emailid") String emailid,
-                                              @Field("pancardno") String pancardno,
-                                              @Field("cardid") String cardid,
-                                              @Field("create_by") String create_by);
+                                                      @Field("contactno") String contactno,
+                                                      @Field("emailid") String emailid,
+                                                      @Field("pancardno") String pancardno,
+                                                      @Field("cardid") String cardid,
+                                                      @Field("create_by") String create_by);
 
 
 }

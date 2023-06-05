@@ -85,25 +85,19 @@ public class SliderActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
-        binding.nextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (getItem(0) < 2) {
-                    binding.viewPager.setCurrentItem(getItem(1), true);
-                } else {
-                    intent = new Intent(SliderActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        });
-        binding.skipBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        binding.nextBtn.setOnClickListener(v -> {
+            if (getItem(0) < 2) {
+                binding.viewPager.setCurrentItem(getItem(1), true);
+            } else {
                 intent = new Intent(SliderActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
+        });
+        binding.skipBtn.setOnClickListener(v -> {
+            intent = new Intent(SliderActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 
