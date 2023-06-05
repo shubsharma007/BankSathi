@@ -77,7 +77,6 @@ public class MyStatsFragment extends Fragment {
             bundle.putInt("cardId", cardId);
             intent.putExtras(bundle);
             startActivity(intent);
-
         });
 
 

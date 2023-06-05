@@ -32,7 +32,9 @@ public class ProductActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     Call<CreditCardResponse> call;
     String from;
-    MyStatsFragment bydefault;
+    MyStatsFragment myStatsFragment;
+    ProductDetailFragment productDetailFragment;
+    TrainingFragment trainingFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +47,14 @@ public class ProductActivity extends AppCompatActivity {
 
         binding.dataFound.setVisibility(View.GONE);
 
-        bydefault = new MyStatsFragment();
+        myStatsFragment = new MyStatsFragment();
+        productDetailFragment = new ProductDetailFragment();
+        trainingFragment = new TrainingFragment();
         Bundle bundle = new Bundle();
         bundle.putString("from", from);
         bundle.putInt("Id", Id);
-        bydefault.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().replace(R.id.secondHome, bydefault).commit();
+        myStatsFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().replace(R.id.secondHome, myStatsFragment).commit();
 
 
         //fragment change
@@ -135,8 +139,14 @@ public class ProductActivity extends AppCompatActivity {
     private void changeFragment() {
 
         binding.btnDetail.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("from", from);
+            bundle.putInt("Id", Id);
+            productDetailFragment.setArguments(bundle);
+
+
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.secondHome, new ProductDetailFragment()).commit();
+                    .replace(R.id.secondHome, productDetailFragment).commit();
             binding.btnDetail.setBackgroundResource(R.drawable.bg_button);
             binding.btnDetail.setTextColor(getResources().getColor(R.color.white));
             binding.btnMyStats.setBackgroundResource(R.drawable.ic_bg_tv);
@@ -145,8 +155,14 @@ public class ProductActivity extends AppCompatActivity {
             binding.btnTraining.setTextColor(getResources().getColor(R.color.black));
         });
         binding.btnTraining.setOnClickListener(v -> {
+
+            Bundle bundle = new Bundle();
+            bundle.putString("from", from);
+            bundle.putInt("Id", Id);
+            trainingFragment.setArguments(bundle);
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.secondHome, new TrainingFragment()).commit();
+
+                    .replace(R.id.secondHome, trainingFragment).commit();
             binding.btnTraining.setBackgroundResource(R.drawable.bg_button);
             binding.btnTraining.setTextColor(getResources().getColor(R.color.white));
             binding.btnMyStats.setBackgroundResource(R.drawable.ic_bg_tv);
@@ -155,8 +171,13 @@ public class ProductActivity extends AppCompatActivity {
             binding.btnDetail.setTextColor(getResources().getColor(R.color.black));
         });
         binding.btnMyStats.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("from", from);
+            bundle.putInt("Id", Id);
+            myStatsFragment.setArguments(bundle);
+
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.secondHome, new MyStatsFragment()).commit();
+                    .replace(R.id.secondHome, myStatsFragment).commit();
             binding.btnMyStats.setBackgroundResource(R.drawable.bg_button);
             binding.btnMyStats.setTextColor(getResources().getColor(R.color.white));
             binding.btnTraining.setBackgroundResource(R.drawable.ic_bg_tv);
