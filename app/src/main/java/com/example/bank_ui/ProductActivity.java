@@ -48,6 +48,8 @@ public class ProductActivity extends AppCompatActivity {
         binding.dataFound.setVisibility(View.GONE);
 
         myStatsFragment = new MyStatsFragment();
+        productDetailFragment = new ProductDetailFragment();
+        trainingFragment = new TrainingFragment();
         Bundle bundle = new Bundle();
         bundle.putString("from", from);
         bundle.putInt("Id", Id);
