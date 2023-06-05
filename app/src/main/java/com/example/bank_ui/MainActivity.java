@@ -152,8 +152,10 @@ public class MainActivity extends AppCompatActivity {
                     deviceToken = task.getResult();
                     // Log and toast
                     Log.d("ToKeN", deviceToken);
+                    Log.d("ToKeNAAya", aayaToken);
 
                     if (!deviceToken.equals(aayaToken)) {
+                        Toast.makeText(this, "DevicesToken", Toast.LENGTH_SHORT).show();
                         Call<SignUpResponse> updateToken = apiInterface.updateToken(Id, deviceToken);
 
                         updateToken.enqueue(new Callback<SignUpResponse>() {
@@ -173,6 +175,8 @@ public class MainActivity extends AppCompatActivity {
                                 Log.d(TAG, t.getMessage());
                             }
                         });
+                    }else {
+                        Toast.makeText(this, "DevicesTokenElse", Toast.LENGTH_SHORT).show();
                     }
 
 

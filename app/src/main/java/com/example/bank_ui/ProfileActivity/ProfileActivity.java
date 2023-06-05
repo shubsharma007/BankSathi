@@ -172,14 +172,40 @@ public class ProfileActivity extends AppCompatActivity {
             dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                    FirebaseAuth.getInstance().signOut();
-                    editor.clear();
-                    editor.putBoolean("onBoarding", true);
-                    editor.apply();
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
+
+                    Call<SignUpResponse> updateToken = apiInterface.updateToken(Id, "");
+
+                    updateToken.enqueue(new Callback<SignUpResponse>() {
+                        @Override
+                        public void onResponse(Call<SignUpResponse> call, Response<SignUpResponse> response) {
+                            if (response.isSuccessful()) {
+                                Log.d(TAG, "TOKEN UPDATED");
+
+
+                                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                                FirebaseAuth.getInstance().signOut();
+                                editor.clear();
+                                editor.putBoolean("onBoarding", true);
+                                editor.apply();
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                                finish();
+
+
+                            } else {
+//                                    Toast.makeText(MainActivity.this, response.message(), Toast.LENGTH_SHORT).show();
+                                Log.d(TAG, response.message());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<SignUpResponse> call, Throwable t) {
+//                                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            Log.d(TAG, t.getMessage());
+                        }
+                    });
+
+
 
                 }
             });

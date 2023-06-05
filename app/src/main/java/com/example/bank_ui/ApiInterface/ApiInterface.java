@@ -44,7 +44,7 @@ public interface ApiInterface {
                                                @Part MultipartBody.Part profileimg);
 
     @FormUrlEncoded
-    @PATCH("registeruser/{id}")
+    @PATCH("registeruser/{id}/")
     Call<SignUpResponse> updateToken(@Path("id") int id, @Field("devicetoken") String hao);
 
     @Multipart
