@@ -2,6 +2,7 @@ package com.example.bank_ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -60,20 +61,29 @@ public class AddCustomerActivity extends AppCompatActivity {
 
                 if (Objects.equals(from, "CC")) {
                     Call<AddCustomerResponse> call = apiInterface.postAddCustomer(fullName, contact, email, panNumber, String.valueOf(cardId), String.valueOf(Id));
+                    ProgressDialog progressDialog = new ProgressDialog(AddCustomerActivity.this);
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
                     call.enqueue(new Callback<AddCustomerResponse>() {
                         @Override
                         public void onResponse(Call<AddCustomerResponse> call, Response<AddCustomerResponse> response) {
                             if (response.isSuccessful()) {
+                                progressDialog.dismiss();
+                                Log.d("Response", response.message());
                                 Toast.makeText(AddCustomerActivity.this, "Lead Create Successful", Toast.LENGTH_SHORT).show();
 //                            startActivity(new Intent(AddCustomerActivity.this, ProductActivity.class));
                                 finish();
                             } else {
+                                progressDialog.dismiss();
+                                Log.d("OnResponseElse", response.message());
                                 Toast.makeText(AddCustomerActivity.this, "try again", Toast.LENGTH_SHORT).show();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<AddCustomerResponse> call, Throwable t) {
+                            Log.d("Failure", t.getMessage());
+                            progressDialog.dismiss();
                             Toast.makeText(AddCustomerActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
                         }

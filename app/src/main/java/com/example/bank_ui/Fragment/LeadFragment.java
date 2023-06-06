@@ -17,6 +17,7 @@ public class LeadFragment extends Fragment {
     FragmentLeadsBinding binding;
 
     public LeadFragment() {
+
     }
 
     @Override

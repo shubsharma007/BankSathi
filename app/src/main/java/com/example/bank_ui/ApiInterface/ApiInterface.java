@@ -1,6 +1,7 @@
 package com.example.bank_ui.ApiInterface;
 
 import com.example.bank_ui.Model.AddCustomerResponse;
+import com.example.bank_ui.Model.CC.GetCCLead;
 import com.example.bank_ui.Model.CreditCardResponse;
 import com.example.bank_ui.Model.GetCustomers;
 import com.example.bank_ui.Model.LoginResponse;
@@ -172,4 +173,11 @@ public interface ApiInterface {
                                                       @Field("create_by") String create_by);
 
 
+    @GET("lead/{id}/{cid}")
+    Call<GetCCLead> getCCLead(@Path("id") int id,
+                              @Path("cid") int cid);
+
+    @GET("dematlead/{id}/{cid}")
+    Call<GetCCLead> getDALead(@Path("id") int id,
+                              @Path("cid") int cid);
 }

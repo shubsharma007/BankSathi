@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.example.bank_ui.ApiInterface.ApiInterface;
 import com.example.bank_ui.Fragment.MyStatsFragment;
 import com.example.bank_ui.Fragment.ProductDetailFragment;
 import com.example.bank_ui.Fragment.TrainingFragment;
+import com.example.bank_ui.Model.CC.GetCCLead;
 import com.example.bank_ui.Model.CreditCardResponse;
 import com.example.bank_ui.Retrofit.RetrofitServices;
 import com.example.bank_ui.databinding.ActivityProductBinding;
@@ -31,16 +33,22 @@ public class ProductActivity extends AppCompatActivity {
     private static final String TAG = "TAGTAGTAG";
     ApiInterface apiInterface;
     Call<CreditCardResponse> call;
+    Call<GetCCLead> callLead;
     String from;
     MyStatsFragment myStatsFragment;
     ProductDetailFragment productDetailFragment;
     TrainingFragment trainingFragment;
+    SharedPreferences sharedPreferences;
+
+    int myId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityProductBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        sharedPreferences = getSharedPreferences("bank", MODE_PRIVATE);
+        myId = sharedPreferences.getInt("id", 0);
         apiInterface = RetrofitServices.getRetrofit().create(ApiInterface.class);
         Id = getIntent().getIntExtra("Id", 0);
         from = getIntent().getStringExtra("from");
@@ -64,9 +72,18 @@ public class ProductActivity extends AppCompatActivity {
         Log.d("ID aarahi hai", String.valueOf(Id));
 
         Log.d("Frommekyahai", from);
+
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (Objects.equals(from, "CC")) {
+            callLead = apiInterface.getCCLead(myId, Id);
             call = apiInterface.getSingleCard(Id);
         } else if (Objects.equals(from, "DA")) {
+            callLead = apiInterface.getDALead(myId, Id);
             call = apiInterface.getSingleDemetAccount(Id);
         } else if (Objects.equals(from, "BA")) {
             call = apiInterface.getSingleBankAccount(Id);
@@ -80,6 +97,32 @@ public class ProductActivity extends AppCompatActivity {
         }
 
         binding.loadingCard.setVisibility(View.VISIBLE);
+        callLead.enqueue(new Callback<GetCCLead>() {
+            @Override
+            public void onResponse(Call<GetCCLead> call, Response<GetCCLead> response) {
+                if (response.isSuccessful()) {
+                    if (response.body().getLead().size() > 0) {
+                        String leads = response.body().getLead().get(0).getLeadno();
+                        Log.d("onResponse", response.message());
+                        binding.txtLeads.setText(leads);
+                    } else {
+                        binding.txtLeads.setText("0 ");
+
+                    }
+
+                } else {
+                    Log.d("onResponseElse", response.message());
+                    Toast.makeText(ProductActivity.this, "try again", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GetCCLead> call, Throwable t) {
+                Log.d("Failure", t.getMessage());
+                Toast.makeText(ProductActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
         call.enqueue(new Callback<CreditCardResponse>() {
             @Override
             public void onResponse(Call<CreditCardResponse> call, Response<CreditCardResponse> response) {
@@ -101,11 +144,11 @@ public class ProductActivity extends AppCompatActivity {
                     } else {
                         binding.cardName.setText(res.getClname());
                     }
+                    Log.d("onResponse", response.message());
 
                     Glide.with(ProductActivity.this).load(res.getBanklogo()).into(binding.imageView);
                     binding.txtCardDes.setText(res.getDiscription());
                     binding.txtEarning.setText(res.getTotalEarn());
-                    binding.txtLeads.setText(res.getTotalLead());
                     binding.txtSales.setText(res.getToatlSale());
 
                 } else {

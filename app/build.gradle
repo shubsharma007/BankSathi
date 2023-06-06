@@ -68,6 +68,7 @@ dependencies {
     //ExpandableTextView
     implementation 'com.ms-square:expandableTextView:0.1.4'
 
-
+        //YoutubeVIew
+//    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:12.0.0'
 
 }
