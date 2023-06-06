@@ -86,13 +86,17 @@ public class ProductActivity extends AppCompatActivity {
             callLead = apiInterface.getDALead(myId, Id);
             call = apiInterface.getSingleDemetAccount(Id);
         } else if (Objects.equals(from, "BA")) {
+
             call = apiInterface.getSingleBankAccount(Id);
         } else if (Objects.equals(from, "GL")) {
+            callLead = apiInterface.getGLLead(myId, Id);
             call = apiInterface.getSingleGoldLoan(Id);
         } else if (Objects.equals(from, "PL")) {
+
             call = apiInterface.getSinglePersonalLoan(Id);
             //Insurance(IN)
         } else {
+            callLead = apiInterface.getINLead(myId, Id);
             call = apiInterface.getSingleInsurance(Id);
         }
 

@@ -180,4 +180,13 @@ public interface ApiInterface {
     @GET("dematlead/{id}/{cid}")
     Call<GetCCLead> getDALead(@Path("id") int id,
                               @Path("cid") int cid);
+
+    @GET("insurance/{id}/{cid}")
+    Call<GetCCLead> getINLead(@Path("id") int id,
+                              @Path("cid") int cid);
+    @GET("goldlead/{id}/{cid}")
+    Call<GetCCLead> getGLLead(@Path("id") int id,
+                              @Path("cid") int cid);
+
+
 }
