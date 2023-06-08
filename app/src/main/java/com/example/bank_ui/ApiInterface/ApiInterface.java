@@ -187,6 +187,17 @@ public interface ApiInterface {
     @GET("goldlead/{id}/{cid}")
     Call<GetCCLead> getGLLead(@Path("id") int id,
                               @Path("cid") int cid);
+    @GET("buisness/{id}/{cid}")
+    Call<GetCCLead> getBALead(@Path("id") int id,
+                              @Path("cid") int cid);
+    @GET("personalloan/{id}/{cid}")
+    Call<GetCCLead> getPLLead(@Path("id") int id,
+                              @Path("cid") int cid);
+
+
+
+
+
 
 
 }
