@@ -73,17 +73,18 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
         });
 
-        getSupportFragmentManager().beginTransaction().add(R.id.constraintLayout, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.container, new HomeFragment()).commit();
         binding.txtHii.setVisibility(View.VISIBLE);
         binding.txtName.setVisibility(View.VISIBLE);
         binding.icQuestion.setVisibility(View.VISIBLE);
         binding.icToolTip.setVisibility(View.GONE);
         binding.maintext.setVisibility(View.GONE);
         binding.notificationBtn.setVisibility(View.VISIBLE);
+        binding.navigation.setBackground(null);
         binding.navigation.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new HomeFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
                     binding.txtHii.setVisibility(View.VISIBLE);
                     binding.txtName.setVisibility(View.VISIBLE);
                     binding.notificationBtn.setVisibility(View.VISIBLE);
@@ -93,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.leads:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new LeadFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new LeadFragment()).commit();
                     binding.txtHii.setVisibility(View.GONE);
                     binding.txtName.setVisibility(View.GONE);
                     binding.icQuestion.setVisibility(View.GONE);
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.referral:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new RrferralFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new RrferralFragment()).commit();
                     binding.txtHii.setVisibility(View.GONE);
                     binding.txtName.setVisibility(View.GONE);
                     binding.icQuestion.setVisibility(View.GONE);
@@ -114,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     binding.maintext.setText("Referral");
                     break;
                 case R.id.myTeam:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.constraintLayout, new MyTeamFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, new MyTeamFragment()).commit();
                     binding.txtHii.setVisibility(View.GONE);
                     binding.txtName.setVisibility(View.GONE);
                     binding.icQuestion.setVisibility(View.GONE);

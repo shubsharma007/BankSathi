@@ -63,6 +63,7 @@ public class CreditCardAdapter extends RecyclerView.Adapter<CreditCardAdapter.My
             if (from.equals("CC")) {
                 Intent intent = new Intent(context, ProductActivity.class);
                 intent.putExtra("Id", response.getId());
+
                 intent.putExtra("from", "CC");
                 context.startActivity(intent);
             } else if (from.equals("DA")) {
